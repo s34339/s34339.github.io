@@ -1,41 +1,152 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟมสะสมงานของฉัน </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แฟ้มสะสมงานของฉัน</title>
+
+```
 <style>
-body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #red; color:Tomato ; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+    body {
+        font-family: Tahoma, sans-serif;
+        background: linear-gradient(to right, #74ebd5, #9face6);
+        margin: 0;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    h1 {
+        color: #ffffff;
+    }
+
+    .profile-card,
+    .project-card {
+        background: white;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #3498db;
+    }
+
+    .project-card {
+        text-align: left;
+        transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .btn {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #c0392b;
+    }
+
+    footer {
+        color: white;
+        margin-top: 30px;
+    }
 </style>
+```
+
 </head>
+
 <body>
+
 <div class="container">
-<h1> แฟมสะสมงาน (Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจค่ะ</p>
-<!-- กล่องผลงานชนที่ ้ิ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชิ้นงานวิทยาศาสตร์คำนวณ </h3>
-<p>รายละเอียดชิ้นงาน: เขียนอธิบายสันๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง </p>
-</div>
-<!-- กล่องผลงานชนที่ ้ิ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชิ้นงาน : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
-</div>
-  <!-- กล่องผลงานชนที่ ้ิ 3 -->
-<div class="project-card">
-<h3>3. โครงงาน/ชิ้นงานวิทยาศาสตร์คำนวณ </h3>
-<p>รายละเอียดชิ้นงาน: เขียนอธิบายสันๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง </p>
+
+```
+<h1>📁 แฟ้มสะสมงาน (Portfolio)</h1>
+
+<!-- โปรไฟล์ -->
+<div class="profile-card">
+    <img src="profile.jpg" alt="รูปโปรไฟล์" class="profile-img">
+
+    <h2>ชื่อ - นามสกุล</h2>
+    <p><strong>ชั้น:</strong> มัธยมศึกษาปีที่ 6</p>
+    <p><strong>โรงเรียน:</strong> โรงเรียนตัวอย่าง</p>
+    <p><strong>อีเมล:</strong> example@email.com</p>
+
+    <p>
+        มีความสนใจด้านการเขียนโปรแกรม การออกแบบเว็บไซต์
+        และเทคโนโลยีดิจิทัล ชอบเรียนรู้สิ่งใหม่ ๆ
+        และพัฒนาทักษะด้านคอมพิวเตอร์อยู่เสมอ
+    </p>
 </div>
 
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
+<!-- ผลงานที่ 1 -->
+<div class="project-card">
+    <h3>💻 1. โครงงานเว็บไซต์ Portfolio</h3>
+    <p>
+        สร้างเว็บไซต์แฟ้มสะสมงานด้วย HTML และ CSS
+        เพื่อรวบรวมผลงาน กิจกรรม และข้อมูลส่วนตัว
+        ได้เรียนรู้การออกแบบหน้าเว็บและการจัดวางเนื้อหา
+    </p>
 </div>
+
+<!-- ผลงานที่ 2 -->
+<div class="project-card">
+    <h3>🏆 2. กิจกรรมและเกียรติบัตร</h3>
+    <p>
+        เข้าร่วมการแข่งขันทักษะคอมพิวเตอร์และกิจกรรมวิชาการ
+        ได้รับเกียรติบัตรจากการเข้าร่วมอบรมด้านเทคโนโลยี
+        และการพัฒนาโปรแกรมเบื้องต้น
+    </p>
+</div>
+
+<!-- ผลงานที่ 3 -->
+<div class="project-card">
+    <h3>🔬 3. โครงงานวิทยาศาสตร์คำนวณ</h3>
+    <p>
+        ศึกษาและพัฒนาโครงงานโดยใช้แนวคิดเชิงคำนวณ
+        ฝึกการวิเคราะห์ปัญหา การออกแบบวิธีแก้ปัญหา
+        และการนำเสนอผลงานอย่างเป็นระบบ
+    </p>
+</div>
+
+<!-- ผลงานที่ 4 -->
+<div class="project-card">
+    <h3>🎨 4. งานออกแบบกราฟิก</h3>
+    <p>
+        ออกแบบโปสเตอร์และสื่อประชาสัมพันธ์ด้วยโปรแกรมกราฟิก
+        ฝึกทักษะการใช้สี การจัดองค์ประกอบภาพ
+        และการสื่อสารด้วยงานออกแบบ
+    </p>
+</div>
+
+<!-- ปุ่มกลับหน้าแรก -->
+<a href="index.html" class="btn">🏠 กลับหน้าแรก</a>
+
+<footer>
+    <p>© 2026 Portfolio ของฉัน</p>
+</footer>
+```
+
+</div>
+
 </body>
 </html>
