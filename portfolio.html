@@ -1,150 +1,279 @@
 <!DOCTYPE html>
-
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แฟ้มสะสมงานของฉัน</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
+<title>Portfolio | Arisara Saetang</title>
+
 <style>
-    body {
-        font-family: Tahoma, sans-serif;
-        background: linear-gradient(to right, #74ebd5, #9face6);
-        margin: 0;
-        padding: 30px;
-        text-align: center;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Tahoma, sans-serif;
+    color: #704a70;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.6), transparent 180px),
+        radial-gradient(circle at 85% 25%, rgba(255,190,225,.5), transparent 200px),
+        linear-gradient(135deg, #ffd4e7, #bff5ee, #d8c9ff);
+
+    position: relative;
+}
+
+/* 🌊 คลื่นพื้นหลัง */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    left: -10%;
+    width: 120%;
+    height: 180px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+body::before {
+    bottom: -80px;
+    background: rgba(255,255,255,.35);
+    animation: wave 7s ease-in-out infinite;
+}
+
+body::after {
+    bottom: -110px;
+    background: rgba(91,220,207,.18);
+    animation: wave 9s ease-in-out infinite reverse;
+}
+
+@keyframes wave {
+    0%,100% {
+        transform: translateX(-3%) rotate(1deg);
     }
 
-    .container {
-        max-width: 900px;
-        margin: auto;
+    50% {
+        transform: translateX(3%) rotate(-1deg);
+    }
+}
+
+/* 💎 เพชร */
+.gem {
+    position: fixed;
+    width: 17px;
+    height: 17px;
+    background: linear-gradient(
+        135deg,
+        white,
+        #a5fff5,
+        white,
+        #ffb9df
+    );
+    transform: rotate(45deg);
+    box-shadow:
+        0 0 8px white,
+        0 0 18px #7fffea,
+        0 0 30px rgba(255,255,255,.7);
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(20px) rotate(45deg);
+        opacity: .4;
     }
 
-    h1 {
-        color: #ffffff;
+    50% {
+        transform: translateY(-45px) rotate(135deg);
+        opacity: 1;
     }
+}
 
-    .profile-card,
-    .project-card {
-        background: white;
-        padding: 20px;
-        margin: 20px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
+.g1 { left: 8%; top: 18%; }
+.g2 { left: 20%; top: 75%; animation-delay: 1s; }
+.g3 { left: 80%; top: 20%; animation-delay: 2s; }
+.g4 { left: 90%; top: 70%; animation-delay: 3s; }
+.g5 { left: 35%; top: 10%; animation-delay: 4s; }
+.g6 { left: 65%; top: 85%; animation-delay: 1.5s; }
 
-    .profile-img {
-        width: 180px;
-        height: 180px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid #3498db;
-    }
+/* ⭐ หน้าปก */
+.cover {
+    position: relative;
+    z-index: 5;
 
-    .project-card {
-        text-align: left;
-        transition: transform 0.3s;
-    }
+    width: min(900px, 92%);
+    min-height: 620px;
 
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
+    margin: 40px auto;
 
-    .btn {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 12px 25px;
-        text-decoration: none;
-        border-radius: 8px;
-        margin-top: 20px;
-        font-weight: bold;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .btn:hover {
-        background: #c0392b;
-    }
+    padding: 60px 30px;
 
-    footer {
-        color: white;
-        margin-top: 30px;
-    }
+    background: rgba(255,255,255,.78);
+
+    border: 3px solid rgba(255,255,255,.9);
+
+    border-radius: 55px;
+
+    box-shadow:
+        0 20px 50px rgba(130,70,130,.2),
+        inset 0 0 30px rgba(255,255,255,.6);
+
+    backdrop-filter: blur(10px);
+}
+
+/* กรอบรูป */
+.photo-frame {
+    padding: 8px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff82b7,
+            #72e8dc,
+            #b48cff,
+            #ff82b7
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.9),
+        0 0 35px rgba(255,120,190,.35);
+}
+
+.photo-frame img {
+    width: 170px;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+
+    border: 5px solid white;
+}
+
+h1 {
+    margin: 25px 0 10px;
+
+    font-size: 42px;
+
+    color: #c64f91;
+
+    text-shadow:
+        2px 2px white,
+        0 0 15px rgba(255,130,190,.35);
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #488d91;
+}
+
+/* 📚 เมนู */
+.menu {
+    margin-top: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+
+    max-width: 750px;
+}
+
+.menu a {
+    text-decoration: none;
+
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff82b7,
+            #8dded5
+        );
+
+    box-shadow:
+        0 5px 15px rgba(200,90,150,.2);
+
+    transition: .3s;
+}
+
+.menu a:hover {
+    transform: translateY(-6px) scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(200,90,150,.35);
+}
+
+footer {
+    margin-top: 25px;
+    color: #8b658b;
+}
 </style>
-```
-
 </head>
 
 <body>
 
-<div class="container">
+<!-- 💎 เพชร -->
+<div class="gem g1"></div>
+<div class="gem g2"></div>
+<div class="gem g3"></div>
+<div class="gem g4"></div>
+<div class="gem g5"></div>
+<div class="gem g6"></div>
 
-```
-<h1>📁 แฟ้มสะสมงาน (Portfolio)</h1>
+<div class="cover">
 
-<!-- โปรไฟล์ -->
-<div class="profile-card">
-    <img src="Parn.jpg" alt="รูปโปรไฟล์" class="profile-img">
+    <div class="photo-frame">
+        <img src="Parn.jpg" alt="รูปโปรไฟล์">
+    </div>
 
-    <h2>ชื่อ - นามสกุล</h2>
-    <p><strong>ชั้น:</strong> มัธยมศึกษาปีที่ 6</p>
-    <p><strong>โรงเรียน:</strong> โรงเรียนตัวอย่าง</p>
-    <p><strong>อีเมล:</strong> example@email.com</p>
+    <h1>💎 PORTFOLIO 💎</h1>
 
-    <p>
-        มีความสนใจด้านการเขียนโปรแกรม การออกแบบเว็บไซต์
-        และเทคโนโลยีดิจิทัล ชอบเรียนรู้สิ่งใหม่ ๆ
-        และพัฒนาทักษะด้านคอมพิวเตอร์อยู่เสมอ
-    </p>
-</div>
+    <div class="subtitle">
+        แฟ้มสะสมผลงานของ<br>
+        <strong>อริสรา แซ่ตั๊ง</strong>
+    </div>
 
-<!-- ผลงานที่ 1 -->
-<div class="project-card">
-    <h3>💻 1. โครงงานเว็บไซต์ Portfolio</h3>
-    <p>
-        สร้างเว็บไซต์แฟ้มสะสมงานด้วย HTML และ CSS
-        เพื่อรวบรวมผลงาน กิจกรรม และข้อมูลส่วนตัว
-        ได้เรียนรู้การออกแบบหน้าเว็บและการจัดวางเนื้อหา
-    </p>
-</div>
+    <div class="menu">
 
-<!-- ผลงานที่ 2 -->
-<div class="project-card">
-    <h3>🏆 2. กิจกรรมและเกียรติบัตร</h3>
-    <p>
-        เข้าร่วมการแข่งขันทักษะคอมพิวเตอร์และกิจกรรมวิชาการ
-        ได้รับเกียรติบัตรจากการเข้าร่วมอบรมด้านเทคโนโลยี
-        และการพัฒนาโปรแกรมเบื้องต้น
-    </p>
-</div>
+        <a href="index.html">🏠 หน้าปก</a>
 
-<!-- ผลงานที่ 3 -->
-<div class="project-card">
-    <h3>🔬 3. โครงงานวิทยาศาสตร์คำนวณ</h3>
-    <p>
-        ศึกษาและพัฒนาโครงงานโดยใช้แนวคิดเชิงคำนวณ
-        ฝึกการวิเคราะห์ปัญหา การออกแบบวิธีแก้ปัญหา
-        และการนำเสนอผลงานอย่างเป็นระบบ
-    </p>
-</div>
+        <a href="preface.html">💌 คำนำ</a>
 
-<!-- ผลงานที่ 4 -->
-<div class="project-card">
-    <h3>🎨 4. งานออกแบบกราฟิก</h3>
-    <p>
-        ออกแบบโปสเตอร์และสื่อประชาสัมพันธ์ด้วยโปรแกรมกราฟิก
-        ฝึกทักษะการใช้สี การจัดองค์ประกอบภาพ
-        และการสื่อสารด้วยงานออกแบบ
-    </p>
-</div>
+        <a href="profile.html">👩‍🎓 ประวัติส่วนตัว</a>
 
-<!-- ปุ่มกลับหน้าแรก -->
-<a href="index.html" class="btn">🏠 กลับหน้าแรก</a>
+        <a href="education.html">🎓 ประวัติการศึกษา</a>
 
-<footer>
-    <p>© 2026 Portfolio ของฉัน</p>
-</footer>
-```
+        <a href="study.html">🔬 ความสนใจในการศึกษาต่อ</a>
+
+        <a href="activities.html">🏆 กิจกรรมที่เข้าร่วม</a>
+
+        <a href="talent.html">🌟 ความสามารถพิเศษ</a>
+
+    </div>
+
+    <footer>
+        ✦ ✧ Welcome to my Portfolio ✧ ✦
+    </footer>
 
 </div>
 
