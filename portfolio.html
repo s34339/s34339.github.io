@@ -5,13 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Arisara Portfolio</title>
+<title>Portfolio | Arisara Saetang</title>
 
 <style>
 
-/* ================================
-   🌊 พื้นฐาน
-================================ */
+/* =====================================================
+   🌊 RESET
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -22,41 +22,54 @@ html {
 }
 
 body {
+
     margin: 0;
 
-    font-family: Tahoma, Arial, sans-serif;
-
     min-height: 100vh;
+
+    font-family: Tahoma, Arial, sans-serif;
 
     overflow-x: hidden;
 
     color: white;
 
+    /* 🌊 พื้นทะเลจริง ๆ */
     background:
+
         radial-gradient(
-            circle at 15% 20%,
-            rgba(255,255,255,.35),
-            transparent 180px
+            ellipse at 50% -10%,
+            rgba(255,255,255,.75),
+            transparent 35%
         ),
 
         radial-gradient(
-            circle at 85% 25%,
-            rgba(255,80,180,.25),
-            transparent 220px
+            circle at 20% 35%,
+            rgba(0,255,235,.20),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 55%,
+            rgba(0,180,255,.20),
+            transparent 30%
         ),
 
         linear-gradient(
-            135deg,
-            #00cfc1 0%,
-            #00aebd 38%,
-            #ff4fa3 100%
+            180deg,
+            #087f91 0%,
+            #056b83 25%,
+            #04566f 55%,
+            #033d5c 78%,
+            #022c49 100%
         );
+
+    position: relative;
 }
 
 
-/* ================================
-   🌊 แสงใต้ทะเล
-================================ */
+/* =====================================================
+   ☀️ แสงส่องลงใต้น้ำ
+===================================================== */
 
 body::before {
 
@@ -64,111 +77,136 @@ body::before {
 
     position: fixed;
 
-    inset: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
 
     pointer-events: none;
 
+    z-index: 0;
+
+    opacity: .55;
+
     background:
 
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(255,255,255,.35),
-            transparent 45%
+        linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255,255,255,.13) 30%,
+            transparent 40%
+        ),
+
+        linear-gradient(
+            70deg,
+            transparent 35%,
+            rgba(255,255,255,.10) 45%,
+            transparent 55%
         );
 
-    z-index: 0;
+    animation: sunlight 8s ease-in-out infinite alternate;
+}
+
+@keyframes sunlight {
+
+    0% {
+        transform: translateX(-30px);
+        opacity: .35;
+    }
+
+    100% {
+        transform: translateX(30px);
+        opacity: .7;
+    }
 }
 
 
-/* ================================
-   🌊 คลื่นใหญ่
-================================ */
+/* =====================================================
+   ✨ กลิตเตอร์ทั่วทะเล
+===================================================== */
 
-.wave {
+.glitter {
 
     position: fixed;
 
-    left: -15%;
+    width: 4px;
+    height: 4px;
 
-    bottom: -100px;
+    border-radius: 50%;
 
-    width: 130%;
+    background: white;
 
-    height: 260px;
-
-    border-radius: 50% 50% 0 0;
-
-    z-index: 1;
+    z-index: 2;
 
     pointer-events: none;
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,255,255,.45),
-            rgba(0,220,205,.5)
-        );
-
     box-shadow:
-        0 -20px 50px rgba(255,255,255,.25);
+        0 0 5px white,
+        0 0 12px #8ffff5;
 
     animation:
-        bigWave 5s ease-in-out infinite;
+        glitterMove 4s ease-in-out infinite,
+        glitterBlink 1.5s ease-in-out infinite alternate;
 }
 
 
-.wave.two {
+@keyframes glitterMove {
 
-    bottom: -145px;
-
-    height: 280px;
-
-    opacity: .65;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,80,180,.35),
-            rgba(0,180,190,.45)
-        );
-
-    animation:
-        bigWave 7s ease-in-out infinite reverse;
-}
-
-
-.wave.three {
-
-    bottom: -190px;
-
-    height: 300px;
-
-    opacity: .5;
-
-    animation:
-        bigWave 9s ease-in-out infinite;
-}
-
-
-@keyframes bigWave {
-
-    0%,100% {
+    0% {
         transform:
-            translateX(-5%)
-            rotate(1deg);
+            translateY(20px);
     }
 
     50% {
         transform:
-            translateX(5%)
-            rotate(-2deg);
+            translateY(-40px);
+    }
+
+    100% {
+        transform:
+            translateY(20px);
     }
 }
 
 
-/* ================================
+@keyframes glitterBlink {
+
+    0% {
+        opacity: .2;
+        transform: scale(.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+
+/* ตำแหน่งกลิตเตอร์ */
+
+.g1  { left: 5%;  top: 18%; }
+.g2  { left: 11%; top: 42%; animation-delay: .3s; }
+.g3  { left: 18%; top: 25%; animation-delay: .8s; }
+.g4  { left: 25%; top: 70%; animation-delay: 1.2s; }
+.g5  { left: 32%; top: 35%; animation-delay: .5s; }
+.g6  { left: 39%; top: 82%; animation-delay: 1.7s; }
+.g7  { left: 46%; top: 20%; animation-delay: .9s; }
+.g8  { left: 52%; top: 55%; animation-delay: 1.4s; }
+.g9  { left: 59%; top: 30%; animation-delay: .2s; }
+.g10 { left: 66%; top: 75%; animation-delay: 1.8s; }
+.g11 { left: 73%; top: 18%; animation-delay: .7s; }
+.g12 { left: 79%; top: 48%; animation-delay: 1.3s; }
+.g13 { left: 86%; top: 30%; animation-delay: .4s; }
+.g14 { left: 92%; top: 65%; animation-delay: 1.6s; }
+.g15 { left: 15%; top: 88%; animation-delay: 2s; }
+.g16 { left: 88%; top: 88%; animation-delay: .6s; }
+
+
+/* =====================================================
    💎 เพชร
-================================ */
+===================================================== */
 
 .diamond {
 
@@ -180,27 +218,47 @@ body::before {
     transform: rotate(45deg);
 
     background:
+
         linear-gradient(
             135deg,
-            white,
-            #7ffff3,
-            white,
-            #ff70b7,
-            white
+            white 0%,
+            #7ffff2 25%,
+            white 45%,
+            #ff73bb 65%,
+            white 100%
         );
 
     border-radius: 4px;
 
-    box-shadow:
-        0 0 10px white,
-        0 0 25px #5ffff0,
-        0 0 40px #ff64b3;
-
     z-index: 3;
+
+    pointer-events: none;
+
+    box-shadow:
+
+        0 0 8px white,
+        0 0 18px #5ffff2,
+        0 0 35px #ff5db0;
 
     animation:
         diamondFloat 6s ease-in-out infinite,
-        diamondSparkle 2s infinite;
+        diamondGlow 2s ease-in-out infinite alternate;
+}
+
+
+.diamond.small {
+
+    width: 12px;
+    height: 12px;
+
+}
+
+
+.diamond.big {
+
+    width: 32px;
+    height: 32px;
+
 }
 
 
@@ -223,86 +281,91 @@ body::before {
             translateY(30px)
             rotate(225deg);
     }
+
 }
 
 
-@keyframes diamondSparkle {
+@keyframes diamondGlow {
 
-    0%,100% {
-        opacity: .35;
+    from {
+        opacity: .3;
         filter: brightness(.8);
     }
 
-    50% {
+    to {
         opacity: 1;
-        filter: brightness(2);
+        filter: brightness(1.8);
     }
+
 }
 
 
-.d1 { left: 5%; top: 15%; }
-.d2 { left: 18%; top: 65%; animation-delay: 1s; }
-.d3 { left: 32%; top: 10%; animation-delay: 2s; }
-.d4 { left: 70%; top: 15%; animation-delay: 1.5s; }
-.d5 { left: 88%; top: 35%; animation-delay: 3s; }
-.d6 { left: 80%; top: 75%; animation-delay: 2s; }
-.d7 { left: 12%; top: 85%; animation-delay: 4s; }
+.d1 {
+    left: 6%;
+    top: 20%;
+}
+
+.d2 {
+    left: 18%;
+    top: 70%;
+    animation-delay: 1s;
+}
+
+.d3 {
+    left: 30%;
+    top: 15%;
+    animation-delay: 2s;
+}
+
+.d4 {
+    right: 8%;
+    top: 20%;
+    animation-delay: 1.5s;
+}
+
+.d5 {
+    right: 17%;
+    top: 65%;
+    animation-delay: 3s;
+}
+
+.d6 {
+    left: 50%;
+    top: 80%;
+    animation-delay: 2.5s;
+}
 
 
-/* ================================
+/* =====================================================
    🫧 ฟองอากาศ
-================================ */
+===================================================== */
 
 .bubble {
 
     position: fixed;
 
-    bottom: -50px;
+    bottom: -60px;
 
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
 
     border:
         2px solid rgba(255,255,255,.65);
 
-    border-radius: 50%;
+    background:
+        rgba(255,255,255,.08);
 
     z-index: 2;
 
+    pointer-events: none;
+
+    box-shadow:
+        inset 2px 2px 5px white;
+
     animation:
-        bubbleUp 8s linear infinite;
-}
-
-
-.b1 {
-    left: 10%;
-    animation-delay: 1s;
-}
-
-.b2 {
-    left: 30%;
-    width: 12px;
-    height: 12px;
-    animation-delay: 4s;
-}
-
-.b3 {
-    left: 55%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 2s;
-}
-
-.b4 {
-    left: 75%;
-    animation-delay: 5s;
-}
-
-.b5 {
-    left: 90%;
-    width: 10px;
-    height: 10px;
-    animation-delay: 3s;
+        bubbleUp 9s linear infinite;
 }
 
 
@@ -312,25 +375,134 @@ body::before {
         transform:
             translateY(0)
             translateX(0);
+
         opacity: 0;
     }
 
-    20% {
+    15% {
         opacity: .8;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            translateX(35px);
     }
 
     100% {
         transform:
-            translateY(-110vh)
-            translateX(60px);
+            translateY(-115vh)
+            translateX(-30px);
+
         opacity: 0;
     }
 }
 
 
-/* ================================
-   💗 กล่องหน้าปก
-================================ */
+.b1 { left: 7%; animation-delay: 0s; }
+.b2 { left: 20%; animation-delay: 3s; width: 12px; height: 12px; }
+.b3 { left: 35%; animation-delay: 5s; width: 28px; height: 28px; }
+.b4 { left: 55%; animation-delay: 2s; }
+.b5 { left: 70%; animation-delay: 6s; width: 13px; height: 13px; }
+.b6 { left: 85%; animation-delay: 4s; width: 25px; height: 25px; }
+
+
+/* =====================================================
+   🌊 คลื่นด้านล่าง
+===================================================== */
+
+.wave {
+
+    position: fixed;
+
+    left: -15%;
+
+    bottom: -120px;
+
+    width: 130%;
+
+    height: 300px;
+
+    border-radius:
+        50% 50% 0 0;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(75,255,239,.45),
+            rgba(0,120,150,.7)
+        );
+
+    box-shadow:
+        0 -20px 50px
+        rgba(75,255,239,.35);
+
+    animation:
+        waveMove 5s ease-in-out infinite;
+}
+
+
+.wave.two {
+
+    bottom: -155px;
+
+    height: 320px;
+
+    opacity: .7;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,80,180,.35),
+            rgba(0,150,160,.6)
+        );
+
+    animation:
+        waveMove 7s ease-in-out infinite reverse;
+}
+
+
+.wave.three {
+
+    bottom: -200px;
+
+    height: 350px;
+
+    opacity: .45;
+
+    background:
+        rgba(0,210,205,.6);
+
+    animation:
+        waveMove 9s ease-in-out infinite;
+}
+
+
+@keyframes waveMove {
+
+    0%,100% {
+        transform:
+            translateX(-5%)
+            rotate(1deg);
+    }
+
+    50% {
+        transform:
+            translateX(5%)
+            rotate(-2deg);
+    }
+}
+
+
+/* =====================================================
+   💎 กล่อง Portfolio
+===================================================== */
 
 .container {
 
@@ -338,49 +510,55 @@ body::before {
 
     z-index: 10;
 
-    width: min(1050px, 92%);
+    width:
+        min(1050px, 92%);
 
-    margin: 40px auto 250px;
-
+    margin:
+        45px auto 300px;
 }
 
 
 .cover {
 
-    min-height: 700px;
+    padding:
+        60px 35px;
 
-    padding: 55px 35px;
+    min-height:
+        700px;
 
-    text-align: center;
-
-    border-radius: 60px;
+    text-align:
+        center;
 
     background:
+
         linear-gradient(
             145deg,
-            rgba(255,255,255,.92),
-            rgba(255,215,238,.82)
+            rgba(255,255,255,.94),
+            rgba(255,235,247,.90)
         );
 
     border:
-        4px solid rgba(255,255,255,.95);
+        4px solid white;
+
+    border-radius:
+        60px;
 
     box-shadow:
 
-        0 30px 70px
-        rgba(70,50,100,.35),
+        0 30px 80px
+        rgba(0,20,50,.5),
 
-        inset 0 0 35px
-        rgba(255,255,255,.8);
+        0 0 40px
+        rgba(255,255,255,.5);
 
-    backdrop-filter: blur(15px);
-
+    backdrop-filter:
+        blur(12px);
 }
 
 
-/* ================================
-   👑 กรอบรูป
-================================ */
+/* =====================================================
+   🖼️ กรอบรูป
+===================================================== */
 
 .photo-frame {
 
@@ -390,29 +568,43 @@ body::before {
 
     border-radius: 50%;
 
+    /* กรอบเปลี่ยนสีได้
+       แต่รูปข้างในไม่เปลี่ยนสี */
     background:
 
         conic-gradient(
-            #ff1590,
-            #ff79c6,
-            #00f5dd,
-            white,
-            #00d8ca,
-            #ff1590
+            #ff1595,
+            #ff65b5,
+            #ffffff,
+            #00f5df,
+            #ffffff,
+            #ff1595
         );
 
     box-shadow:
 
-        0 0 20px white,
-
-        0 0 40px #ff42a8,
-
-        0 0 60px #00ffe5;
+        0 0 15px white,
+        0 0 35px #ff3da5,
+        0 0 55px #00ffe1;
 
     animation:
-        frameRotate 5s linear infinite;
+        frameGlow 5s linear infinite;
 }
 
+
+@keyframes frameGlow {
+
+    100% {
+        filter:
+            hue-rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   ⭐ สำคัญมาก
+   รูปไม่ถูก filter ไม่ถูก hue-rotate
+===================================================== */
 
 .photo-frame img {
 
@@ -425,76 +617,85 @@ body::before {
 
     border-radius: 50%;
 
-    border: 7px solid white;
+    border:
+        7px solid white;
+
+    /* ไม่ใส่ filter ใด ๆ */
+
+    filter: none !important;
+
+    animation: none !important;
+
 }
 
 
-@keyframes frameRotate {
-
-    to {
-        filter:
-            hue-rotate(360deg);
-    }
-}
-
-
-/* ================================
-   ✨ ชื่อ
-================================ */
+/* =====================================================
+   💗 ตัวหนังสือ
+===================================================== */
 
 h1 {
-
-    font-size:
-        clamp(42px, 8vw, 75px);
 
     margin:
         25px 0 5px;
 
-    color: #ff2997;
+    font-size:
+        clamp(42px, 8vw, 75px);
 
-    letter-spacing: 3px;
+    color:
+        #ff2998;
+
+    letter-spacing:
+        3px;
 
     text-shadow:
 
         3px 3px white,
 
         0 0 20px
-        rgba(255,30,150,.5);
+        rgba(255,40,150,.6);
 }
 
 
 .name {
 
-    font-size: 28px;
+    font-size:
+        28px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    color: #00a99e;
-
-    text-shadow:
-        1px 1px white;
+    color:
+        #00a99e;
 }
 
 
 .tagline {
 
-    margin-top: 12px;
+    margin-top:
+        12px;
 
-    color: #80506f;
+    font-size:
+        18px;
 
-    font-size: 18px;
+    line-height:
+        1.8;
+
+    color:
+        #76506e;
 }
 
 
-/* ================================
+/* =====================================================
    📚 เมนู
-================================ */
+===================================================== */
 
 .menu {
 
-    margin-top: 45px;
+    margin-top:
+        45px;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(
@@ -502,54 +703,61 @@ h1 {
             minmax(220px, 1fr)
         );
 
-    gap: 18px;
+    gap:
+        18px;
 }
 
 
 .menu a {
 
-    position: relative;
+    padding:
+        25px 15px;
 
-    padding: 24px 15px;
+    text-decoration:
+        none;
 
-    border-radius: 28px;
+    color:
+        white;
 
-    text-decoration: none;
+    border-radius:
+        28px;
+
+    font-weight:
+        bold;
 
     background:
+
         linear-gradient(
             135deg,
-            #ff3f9f,
-            #ff78bd
+            #ff238f,
+            #ff63b0
         );
 
-    color: white;
-
-    font-weight: bold;
-
     box-shadow:
-        0 10px 25px
-        rgba(255,30,150,.25);
 
-    overflow: hidden;
+        0 10px 25px
+        rgba(255,30,145,.4);
 
     transition:
         .35s;
+
 }
 
 
 .menu a:nth-child(even) {
 
     background:
+
         linear-gradient(
             135deg,
-            #00bfb3,
-            #00e4d1
+            #00a99d,
+            #00e0ce
         );
 
     box-shadow:
+
         0 10px 25px
-        rgba(0,180,170,.3);
+        rgba(0,200,185,.4);
 }
 
 
@@ -561,56 +769,70 @@ h1 {
 
     box-shadow:
 
-        0 20px 35px
+        0 20px 40px
         rgba(255,255,255,.4);
 }
 
 
 .menu-icon {
 
-    display: block;
+    display:
+        block;
 
-    font-size: 35px;
+    font-size:
+        36px;
 
-    margin-bottom: 8px;
+    margin-bottom:
+        8px;
 }
 
 
 .menu-title {
 
-    font-size: 18px;
+    font-size:
+        18px;
 }
 
 
 .menu-small {
 
-    display: block;
+    display:
+        block;
 
-    margin-top: 5px;
+    margin-top:
+        6px;
 
-    opacity: .8;
+    font-size:
+        12px;
 
-    font-size: 13px;
+    opacity:
+        .85;
 }
 
 
-/* ================================
-   📱 Mobile
-================================ */
+/* =====================================================
+   📱 โทรศัพท์
+===================================================== */
 
 @media(max-width:600px) {
 
     .cover {
-        padding: 40px 18px;
+        padding:
+            45px 18px;
     }
 
     .photo-frame img {
-        width: 160px;
-        height: 160px;
+
+        width: 165px;
+        height: 165px;
+
     }
 
     .menu {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
 
 }
@@ -623,24 +845,44 @@ h1 {
 <body>
 
 
+<!-- ✨ กลิตเตอร์ -->
+
+<div class="glitter g1"></div>
+<div class="glitter g2"></div>
+<div class="glitter g3"></div>
+<div class="glitter g4"></div>
+<div class="glitter g5"></div>
+<div class="glitter g6"></div>
+<div class="glitter g7"></div>
+<div class="glitter g8"></div>
+<div class="glitter g9"></div>
+<div class="glitter g10"></div>
+<div class="glitter g11"></div>
+<div class="glitter g12"></div>
+<div class="glitter g13"></div>
+<div class="glitter g14"></div>
+<div class="glitter g15"></div>
+<div class="glitter g16"></div>
+
+
 <!-- 💎 เพชร -->
 
 <div class="diamond d1"></div>
-<div class="diamond d2"></div>
+<div class="diamond small d2"></div>
 <div class="diamond d3"></div>
-<div class="diamond d4"></div>
-<div class="diamond d5"></div>
+<div class="diamond big d4"></div>
+<div class="diamond small d5"></div>
 <div class="diamond d6"></div>
-<div class="diamond d7"></div>
 
 
-<!-- 🫧 ฟอง -->
+<!-- 🫧 ฟองอากาศ -->
 
 <div class="bubble b1"></div>
 <div class="bubble b2"></div>
 <div class="bubble b3"></div>
 <div class="bubble b4"></div>
 <div class="bubble b5"></div>
+<div class="bubble b6"></div>
 
 
 <!-- 🌊 คลื่น -->
@@ -650,154 +892,152 @@ h1 {
 <div class="wave three"></div>
 
 
+<!-- 💗 เนื้อหา -->
+
 <div class="container">
 
+    <div class="cover">
 
-<div class="cover">
+        <!-- 🖼️ รูปต้นฉบับ -->
+        <div class="photo-frame">
+
+            <img
+                src="Parn.jpg"
+                alt="รูปโปรไฟล์"
+            >
+
+        </div>
 
 
-    <div class="photo-frame">
+        <h1>
+            PORTFOLIO
+        </h1>
 
-        <img
-            src="Parn.jpg"
-            alt="รูปโปรไฟล์"
-        >
+
+        <div class="name">
+            อริสรา แซ่ตั๊ง
+        </div>
+
+
+        <div class="tagline">
+
+            💎 MY CRYSTAL PORTFOLIO 💎
+
+            <br>
+
+            🌊 Math & Science Gifted 🌊
+
+        </div>
+
+
+        <!-- 📚 เมนู -->
+
+        <div class="menu">
+
+            <a href="preface.html">
+
+                <span class="menu-icon">
+                    💌
+                </span>
+
+                <span class="menu-title">
+                    คำนำ
+                </span>
+
+                <span class="menu-small">
+                    PREFACE
+                </span>
+
+            </a>
+
+
+            <a href="profile.html">
+
+                <span class="menu-icon">
+                    👩‍🎓
+                </span>
+
+                <span class="menu-title">
+                    ประวัติส่วนตัว
+                </span>
+
+                <span class="menu-small">
+                    PROFILE
+                </span>
+
+            </a>
+
+
+            <a href="education.html">
+
+                <span class="menu-icon">
+                    🎓
+                </span>
+
+                <span class="menu-title">
+                    ประวัติการศึกษา
+                </span>
+
+                <span class="menu-small">
+                    EDUCATION
+                </span>
+
+            </a>
+
+
+            <a href="study.html">
+
+                <span class="menu-icon">
+                    🔬
+                </span>
+
+                <span class="menu-title">
+                    ความสนใจในการศึกษาต่อ
+                </span>
+
+                <span class="menu-small">
+                    FUTURE STUDY
+                </span>
+
+            </a>
+
+
+            <a href="activities.html">
+
+                <span class="menu-icon">
+                    🏆
+                </span>
+
+                <span class="menu-title">
+                    กิจกรรมที่เข้าร่วม
+                </span>
+
+                <span class="menu-small">
+                    ACTIVITIES
+                </span>
+
+            </a>
+
+
+            <a href="talent.html">
+
+                <span class="menu-icon">
+                    🌟
+                </span>
+
+                <span class="menu-title">
+                    ความสามารถพิเศษ
+                </span>
+
+                <span class="menu-small">
+                    SKILLS & TALENT
+                </span>
+
+            </a>
+
+        </div>
 
     </div>
-
-
-    <h1>
-        PORTFOLIO
-    </h1>
-
-
-    <div class="name">
-        อริสรา แซ่ตั๊ง
-    </div>
-
-
-    <div class="tagline">
-
-        💎 MY CRYSTAL PORTFOLIO 💎
-
-        <br>
-
-        🌊 Math & Science Gifted 🌊
-
-    </div>
-
-
-    <!-- เมนู -->
-
-    <div class="menu">
-
-
-        <a href="preface.html">
-
-            <span class="menu-icon">
-                💌
-            </span>
-
-            <span class="menu-title">
-                คำนำ
-            </span>
-
-            <span class="menu-small">
-                PREFACE
-            </span>
-
-        </a>
-
-
-        <a href="profile.html">
-
-            <span class="menu-icon">
-                👩‍🎓
-            </span>
-
-            <span class="menu-title">
-                ประวัติส่วนตัว
-            </span>
-
-            <span class="menu-small">
-                PROFILE
-            </span>
-
-        </a>
-
-
-        <a href="education.html">
-
-            <span class="menu-icon">
-                🎓
-            </span>
-
-            <span class="menu-title">
-                ประวัติการศึกษา
-            </span>
-
-            <span class="menu-small">
-                EDUCATION
-            </span>
-
-        </a>
-
-
-        <a href="study.html">
-
-            <span class="menu-icon">
-                🔬
-            </span>
-
-            <span class="menu-title">
-                ความสนใจในการศึกษาต่อ
-            </span>
-
-            <span class="menu-small">
-                FUTURE STUDY
-            </span>
-
-        </a>
-
-
-        <a href="activities.html">
-
-            <span class="menu-icon">
-                🏆
-            </span>
-
-            <span class="menu-title">
-                กิจกรรมที่เข้าร่วม
-            </span>
-
-            <span class="menu-small">
-                ACTIVITIES
-            </span>
-
-        </a>
-
-
-        <a href="talent.html">
-
-            <span class="menu-icon">
-                🌟
-            </span>
-
-            <span class="menu-title">
-                ความสามารถพิเศษ
-            </span>
-
-            <span class="menu-small">
-                SKILLS & TALENT
-            </span>
-
-        </a>
-
-
-    </div>
-
-
-</div>
 
 </div>
 
