@@ -2,30 +2,153 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>หน้าแนะนำตัวของฉัน</title>
+
 <style>
-body {#FA8072
-background-color: #FFFACD; color: #FA8072;
-text-align: center; padding: 50px;
+/* พื้นหลังหลัก */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.25) 0 50px, transparent 51px),
+        radial-gradient(circle at 85% 80%, rgba(255,255,255,0.18) 0 80px, transparent 81px),
+        radial-gradient(circle at 80% 15%, rgba(255,255,255,0.15) 0 35px, transparent 36px),
+        linear-gradient(135deg, #20c9c3, #40e0d0, #66d9e8);
 
+    color: #174f5a;
+    text-align: center;
+    padding: 50px 20px;
+    font-family: "Tahoma", "Arial", sans-serif;
+    overflow: hidden;
 }
+
+/* ลวดลายคลื่นด้านหลัง */
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    top: -180px;
+    left: -150px;
+    box-shadow:
+        0 0 0 40px rgba(255,255,255,0.08),
+        0 0 0 80px rgba(255,255,255,0.06),
+        0 0 0 120px rgba(255,255,255,0.04);
+    pointer-events: none;
+}
+
+/* การ์ดโปรไฟล์ */
 .card {
-background: white; border-radius: 50px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 35px;
+    box-shadow:
+        0 15px 35px rgba(0, 80, 90, 0.20),
+        0 5px 15px rgba(255,255,255,0.4);
 
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    border: 3px solid rgba(255,255,255,0.7);
 }
-h1 { color: #4169E1; }
-p { font-size: 18px; line-height: 1.6; }
+
+/* หัวข้อ */
+h1 {
+    color: #087f8c;
+    font-size: 32px;
+    margin-bottom: 25px;
+
+    text-shadow:
+        2px 2px 0 #b8f3f0,
+        3px 3px 8px rgba(0,0,0,0.1);
+}
+
+/* ข้อความ */
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #28656d;
+}
+
+/* ชื่อ */
+strong {
+    color: #e05a8a;
+    font-size: 20px;
+}
+
+/* ปุ่ม */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 28px;
+
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 6px 15px rgba(255, 117, 140, 0.35);
+
+    transition: all 0.3s ease;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ */
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    background: linear-gradient(135deg, #ff5f9e, #ff477e);
+
+    box-shadow:
+        0 10px 25px rgba(255, 80, 120, 0.45);
+}
+
+/* ตกแต่งข้อความเพิ่มเติม */
+.card::after {
+    content: "✦  ✧  ✦";
+    display: block;
+    margin-top: 25px;
+    color: #40c9c3;
+    font-size: 20px;
+    letter-spacing: 8px;
+}
 </style>
 </head>
+
 <body>
+
 <div class="card">
-<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีค่ะ! ฉันชื่อ <strong>อริสรา แซ่ตั๊ง (Arisara Saetang)</strong></p>
-<p>ขณะนี้กำลังศึกษา/สนใจด้าน Math & Science gifted </p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-<a href="portfolio.html" class="btn"> แฟ้มสะสมผลงาน</a>
+
+    <h1>🌊 ยินดีต้อนรับสู่โปรไฟล์ของฉัน 🌸</h1>
+
+    <p>
+        สวัสดีค่ะ! ฉันชื่อ
+        <strong>อริสรา แซ่ตั๊ง<br>
+        (Arisara Saetang)</strong>
+    </p>
+
+    <p>
+        💡 ขณะนี้กำลังศึกษา/สนใจด้าน<br>
+        <strong>Math & Science Gifted</strong>
+    </p>
+
+    <p>
+        ✨ นี่คือเว็บไซต์แรกของฉัน<br>
+        ที่โฮสต์บน GitHub Pages!
+    </p>
+
+    <a href="portfolio.html" class="btn">
+        🌷 แฟ้มสะสมผลงาน
+    </a>
+
 </div>
+
 </body>
 </html>
