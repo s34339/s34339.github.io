@@ -1,281 +1,1304 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Portfolio | Arisara Saetang</title>
 
 <style>
+
+/* =====================================================
+   🌸 BASIC
+===================================================== */
+
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
+
     margin: 0;
-    min-height: 100vh;
-    font-family: Tahoma, sans-serif;
-    color: #704a70;
+
+    font-family:
+        "Tahoma",
+        "Arial",
+        sans-serif;
+
+    color: #604b63;
+
     overflow-x: hidden;
 
     background:
-        radial-gradient(circle at 15% 20%, rgba(255,255,255,.6), transparent 180px),
-        radial-gradient(circle at 85% 25%, rgba(255,190,225,.5), transparent 200px),
-        linear-gradient(135deg, #ffd4e7, #bff5ee, #d8c9ff);
 
-    position: relative;
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(255,255,255,.9),
+            transparent 180px
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,170,215,.35),
+            transparent 220px
+        ),
+
+        linear-gradient(
+            135deg,
+            #ffd3e5 0%,
+            #ffc9df 25%,
+            #b8f3ec 65%,
+            #c9fff8 100%
+        );
 }
 
-/* 🌊 คลื่นพื้นหลัง */
-body::before,
-body::after {
-    content: "";
+
+/* =====================================================
+   🌊🌊🌊 คลื่นใหญ่ด้านล่าง
+===================================================== */
+
+.wave {
+
     position: fixed;
+
     left: -10%;
-    width: 120%;
-    height: 180px;
-    border-radius: 50%;
-    pointer-events: none;
-}
 
-body::before {
     bottom: -80px;
-    background: rgba(255,255,255,.35);
-    animation: wave 7s ease-in-out infinite;
+
+    width: 120%;
+
+    height: 230px;
+
+    border-radius: 50% 50% 0 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.75),
+            rgba(113,225,214,.45)
+        );
+
+    z-index: 0;
+
+    animation:
+        waveMove 6s ease-in-out infinite;
+
+    box-shadow:
+        0 -10px 40px rgba(255,255,255,.5);
 }
 
-body::after {
-    bottom: -110px;
-    background: rgba(91,220,207,.18);
-    animation: wave 9s ease-in-out infinite reverse;
+
+.wave.wave2 {
+
+    bottom: -130px;
+
+    opacity: .55;
+
+    height: 250px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,150,205,.35),
+            rgba(96,219,209,.4)
+        );
+
+    animation:
+        waveMove2 8s ease-in-out infinite;
 }
 
-@keyframes wave {
+
+.wave.wave3 {
+
+    bottom: -170px;
+
+    opacity: .35;
+
+    height: 280px;
+
+    animation:
+        waveMove3 10s ease-in-out infinite;
+}
+
+
+@keyframes waveMove {
+
     0%,100% {
-        transform: translateX(-3%) rotate(1deg);
+        transform:
+            translateX(-4%)
+            rotate(1deg);
     }
 
     50% {
-        transform: translateX(3%) rotate(-1deg);
+        transform:
+            translateX(4%)
+            rotate(-2deg);
     }
 }
 
-/* 💎 เพชร */
+
+@keyframes waveMove2 {
+
+    0%,100% {
+        transform:
+            translateX(4%)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateX(-4%)
+            rotate(2deg);
+    }
+}
+
+
+@keyframes waveMove3 {
+
+    0%,100% {
+        transform:
+            translateX(-3%);
+    }
+
+    50% {
+        transform:
+            translateX(5%);
+    }
+}
+
+
+/* =====================================================
+   💎 เพชรลอย
+===================================================== */
+
 .gem {
+
     position: fixed;
-    width: 17px;
-    height: 17px;
-    background: linear-gradient(
-        135deg,
-        white,
-        #a5fff5,
-        white,
-        #ffb9df
-    );
+
+    width: 18px;
+    height: 18px;
+
+    z-index: 2;
+
     transform: rotate(45deg);
-    box-shadow:
-        0 0 8px white,
-        0 0 18px #7fffea,
-        0 0 30px rgba(255,255,255,.7);
-    animation: float 6s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes float {
-    0%,100% {
-        transform: translateY(20px) rotate(45deg);
-        opacity: .4;
-    }
-
-    50% {
-        transform: translateY(-45px) rotate(135deg);
-        opacity: 1;
-    }
-}
-
-.g1 { left: 8%; top: 18%; }
-.g2 { left: 20%; top: 75%; animation-delay: 1s; }
-.g3 { left: 80%; top: 20%; animation-delay: 2s; }
-.g4 { left: 90%; top: 70%; animation-delay: 3s; }
-.g5 { left: 35%; top: 10%; animation-delay: 4s; }
-.g6 { left: 65%; top: 85%; animation-delay: 1.5s; }
-
-/* ⭐ หน้าปก */
-.cover {
-    position: relative;
-    z-index: 5;
-
-    width: min(900px, 92%);
-    min-height: 620px;
-
-    margin: 40px auto;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: 60px 30px;
-
-    background: rgba(255,255,255,.78);
-
-    border: 3px solid rgba(255,255,255,.9);
-
-    border-radius: 55px;
-
-    box-shadow:
-        0 20px 50px rgba(130,70,130,.2),
-        inset 0 0 30px rgba(255,255,255,.6);
-
-    backdrop-filter: blur(10px);
-}
-
-/* กรอบรูป */
-.photo-frame {
-    padding: 8px;
-
-    border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            #ff82b7,
-            #72e8dc,
-            #b48cff,
-            #ff82b7
+            #ffffff 0%,
+            #a9fff6 25%,
+            #ffffff 45%,
+            #ffb8df 70%,
+            #ffffff 100%
         );
 
     box-shadow:
-        0 0 20px rgba(255,255,255,.9),
-        0 0 35px rgba(255,120,190,.35);
+
+        0 0 8px #ffffff,
+
+        0 0 18px #73eee1,
+
+        0 0 35px
+        rgba(255,150,220,.7);
+
+    animation:
+        diamondFloat 6s ease-in-out infinite,
+        diamondGlow 2s ease-in-out infinite;
+
+    pointer-events: none;
 }
 
+
+.gem.small {
+
+    width: 10px;
+    height: 10px;
+}
+
+
+.gem.big {
+
+    width: 28px;
+    height: 28px;
+}
+
+
+@keyframes diamondFloat {
+
+    0% {
+
+        transform:
+            translateY(30px)
+            rotate(45deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-60px)
+            rotate(135deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(30px)
+            rotate(225deg);
+
+    }
+
+}
+
+
+@keyframes diamondGlow {
+
+    0%,100% {
+
+        opacity: .35;
+
+        filter:
+            brightness(.8);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        filter:
+            brightness(1.8);
+
+    }
+
+}
+
+
+/* ตำแหน่งเพชร */
+
+.g1 { left: 5%; top: 12%; }
+.g2 { left: 15%; top: 45%; animation-delay: 1s; }
+.g3 { left: 27%; top: 18%; animation-delay: 2s; }
+.g4 { left: 72%; top: 13%; animation-delay: 1.5s; }
+.g5 { left: 88%; top: 32%; animation-delay: 3s; }
+.g6 { left: 92%; top: 75%; animation-delay: 2s; }
+.g7 { left: 12%; top: 82%; animation-delay: 4s; }
+.g8 { left: 48%; top: 88%; animation-delay: 1s; }
+.g9 { left: 65%; top: 48%; animation-delay: 3.5s; }
+.g10 { left: 82%; top: 88%; animation-delay: 4s; }
+
+
+/* =====================================================
+   ✨ MAIN
+===================================================== */
+
+.container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1100px, 92%);
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   💗 COVER
+===================================================== */
+
+.cover {
+
+    min-height: 650px;
+
+    margin-top: 35px;
+
+    padding: 55px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 55px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    border:
+        3px solid
+        rgba(255,255,255,.9);
+
+    backdrop-filter:
+        blur(14px);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(150,70,130,.22),
+
+        inset 0 0 35px
+        rgba(255,255,255,.7);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   💎 กรอบรูปสุดหรู
+===================================================== */
+
+.photo-frame {
+
+    position: relative;
+
+    padding: 9px;
+
+    border-radius: 50%;
+
+    background:
+
+        conic-gradient(
+            from 0deg,
+            #ff6fae,
+            #8ef5e8,
+            #ffffff,
+            #c08cff,
+            #ff6fae
+        );
+
+    box-shadow:
+
+        0 0 15px #ffffff,
+
+        0 0 35px
+        rgba(255,110,180,.5),
+
+        0 0 60px
+        rgba(85,230,215,.3);
+
+    animation:
+        frameGlow 4s linear infinite;
+}
+
+
+.photo-frame::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: -15px;
+    right: 10px;
+
+    font-size: 30px;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px #ff7cbd;
+
+    animation:
+        sparkle 1.5s infinite;
+}
+
+
 .photo-frame img {
-    width: 170px;
-    height: 170px;
+
+    width: 190px;
+
+    height: 190px;
+
+    display: block;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    display: block;
-
-    border: 5px solid white;
+    border:
+        6px solid white;
 }
+
+
+@keyframes frameGlow {
+
+    to {
+        filter:
+            hue-rotate(360deg);
+    }
+
+}
+
+
+@keyframes sparkle {
+
+    50% {
+        transform:
+            scale(1.5)
+            rotate(20deg);
+
+        opacity: .5;
+    }
+
+}
+
+
+/* =====================================================
+   🩷 TITLE
+===================================================== */
 
 h1 {
-    margin: 25px 0 10px;
 
-    font-size: 42px;
+    margin:
+        25px 0 5px;
 
-    color: #c64f91;
+    font-size:
+        clamp(35px, 7vw, 65px);
+
+    color:
+        #cf4e91;
+
+    letter-spacing:
+        2px;
 
     text-shadow:
-        2px 2px white,
-        0 0 15px rgba(255,130,190,.35);
+
+        3px 3px 0 white,
+
+        0 0 20px
+        rgba(255,100,180,.35);
 }
+
+
+.name {
+
+    font-size: 25px;
+
+    color:
+        #3eaaa3;
+
+    font-weight:
+        bold;
+}
+
 
 .subtitle {
-    font-size: 20px;
-    color: #488d91;
+
+    margin-top: 10px;
+
+    font-size: 18px;
+
+    color:
+        #80617e;
 }
 
-/* 📚 เมนู */
+
+/* =====================================================
+   📚 MENU
+===================================================== */
+
 .menu {
-    margin-top: 30px;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    width: 100%;
 
-    max-width: 750px;
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
+    gap: 18px;
+
 }
 
-.menu a {
+
+/* =====================================================
+   💎 MENU CARD
+===================================================== */
+
+.menu-card {
+
+    position: relative;
+
+    padding: 23px 15px;
+
     text-decoration: none;
 
-    color: white;
+    color: #684d68;
 
-    padding: 13px 20px;
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.95),
+            rgba(255,236,247,.85)
+        );
 
     border-radius: 25px;
 
-    font-weight: bold;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff82b7,
-            #8dded5
-        );
+    border:
+        2px solid
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 5px 15px rgba(200,90,150,.2);
+
+        0 8px 20px
+        rgba(130,70,120,.15);
+
+    overflow: hidden;
+
+    transition:
+        .35s ease;
+}
+
+
+.menu-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    top: -50px;
+    right: -40px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(111,228,215,.25);
+}
+
+
+.menu-card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    border-color:
+        #ff8cbd;
+
+    box-shadow:
+
+        0 18px 35px
+        rgba(220,90,160,.25),
+
+        0 0 20px
+        rgba(100,230,215,.25);
+
+}
+
+
+.menu-icon {
+
+    display: block;
+
+    font-size: 35px;
+
+    margin-bottom: 8px;
+}
+
+
+.menu-title {
+
+    display: block;
+
+    color:
+        #c64f91;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+.menu-small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color:
+        #70aaa6;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   📖 CONTENT
+===================================================== */
+
+.content {
+
+    margin-top: 70px;
+
+    padding-bottom: 300px;
+}
+
+
+.section {
+
+    scroll-margin-top: 30px;
+
+    margin-bottom: 45px;
+
+    padding: 45px;
+
+    background:
+        rgba(255,255,255,.86);
+
+    border-radius:
+        35px;
+
+    border:
+        3px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(100,70,110,.15);
+
+    text-align: left;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.section::after {
+
+    content: "💎";
+
+    position: absolute;
+
+    right: 25px;
+
+    top: 20px;
+
+    font-size: 35px;
+
+    opacity: .3;
+}
+
+
+.section h2 {
+
+    color:
+        #c64f91;
+
+    font-size: 30px;
+
+    margin-top: 0;
+
+}
+
+
+.section h3 {
+
+    color:
+        #40a9a2;
+}
+
+
+.section p {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   🖼️ รูปภาพใน section
+===================================================== */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px,1fr)
+        );
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+
+.gallery img {
+
+    width: 100%;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border:
+        4px solid white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(100,70,110,.18);
 
     transition: .3s;
 }
 
-.menu a:hover {
-    transform: translateY(-6px) scale(1.05);
+
+.gallery img:hover {
+
+    transform:
+        scale(1.05)
+        rotate(1deg);
 
     box-shadow:
-        0 10px 25px rgba(200,90,150,.35);
+        0 12px 30px
+        rgba(220,90,160,.3);
 }
 
-footer {
-    margin-top: 25px;
-    color: #8b658b;
+
+/* =====================================================
+   🔙 BACK BUTTON
+===================================================== */
+
+.back {
+
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        25px auto 0;
+
+    padding:
+        13px 28px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff78b3,
+            #61dcd2
+        );
+
+    box-shadow:
+        0 7px 20px
+        rgba(200,80,150,.25);
+
+    transition: .3s;
 }
+
+
+.back:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+}
+
+
+/* =====================================================
+   📱 MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .cover {
+
+        min-height: auto;
+
+        padding:
+            45px 18px;
+
+    }
+
+    .photo-frame img {
+
+        width: 150px;
+        height: 150px;
+
+    }
+
+    .section {
+
+        padding: 28px 22px;
+
+    }
+
+    .menu {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- 💎 เพชร -->
-<div class="gem g1"></div>
-<div class="gem g2"></div>
-<div class="gem g3"></div>
-<div class="gem g4"></div>
-<div class="gem g5"></div>
-<div class="gem g6"></div>
 
-<div class="cover">
+<!-- 💎 เพชร -->
+
+<div class="gem big g1"></div>
+<div class="gem small g2"></div>
+<div class="gem g3"></div>
+<div class="gem big g4"></div>
+<div class="gem small g5"></div>
+<div class="gem g6"></div>
+<div class="gem big g7"></div>
+<div class="gem small g8"></div>
+<div class="gem g9"></div>
+<div class="gem big g10"></div>
+
+
+<!-- 🌊 คลื่น -->
+
+<div class="wave"></div>
+<div class="wave wave2"></div>
+<div class="wave wave3"></div>
+
+
+<div class="container">
+
+
+<!-- =================================================
+     💗 หน้าปก
+================================================= -->
+
+<section class="cover">
 
     <div class="photo-frame">
-        <img src="Parn.jpg" alt="รูปโปรไฟล์">
+
+        <img
+            src="Parn.jpg"
+            alt="รูปโปรไฟล์"
+        >
+
     </div>
 
-    <h1>💎 PORTFOLIO 💎</h1>
+
+    <h1>
+        PORTFOLIO
+    </h1>
+
+
+    <div class="name">
+
+        อริสรา แซ่ตั๊ง
+
+    </div>
+
 
     <div class="subtitle">
-        แฟ้มสะสมผลงานของ<br>
-        <strong>อริสรา แซ่ตั๊ง</strong>
+
+        💎 แฟ้มสะสมผลงานส่วนตัว 💎
+
+        <br>
+
+        Math & Science Gifted
+
     </div>
+
+
+    <!-- 📚 เมนู -->
 
     <div class="menu">
 
-        <a href="index.html">🏠 หน้าปก</a>
 
-        <a href="preface.html">💌 คำนำ</a>
+        <a
+            class="menu-card"
+            href="#preface"
+        >
 
-        <a href="profile.html">👩‍🎓 ประวัติส่วนตัว</a>
+            <span class="menu-icon">
+                💌
+            </span>
 
-        <a href="education.html">🎓 ประวัติการศึกษา</a>
+            <span class="menu-title">
+                คำนำ
+            </span>
 
-        <a href="study.html">🔬 ความสนใจในการศึกษาต่อ</a>
+            <span class="menu-small">
+                Preface
+            </span>
 
-        <a href="activities.html">🏆 กิจกรรมที่เข้าร่วม</a>
+        </a>
 
-        <a href="talent.html">🌟 ความสามารถพิเศษ</a>
+
+        <a
+            class="menu-card"
+            href="#profile"
+        >
+
+            <span class="menu-icon">
+                👩‍🎓
+            </span>
+
+            <span class="menu-title">
+                ประวัติส่วนตัว
+            </span>
+
+            <span class="menu-small">
+                Profile
+            </span>
+
+        </a>
+
+
+        <a
+            class="menu-card"
+            href="#education"
+        >
+
+            <span class="menu-icon">
+                🎓
+            </span>
+
+            <span class="menu-title">
+                ประวัติการศึกษา
+            </span>
+
+            <span class="menu-small">
+                Education
+            </span>
+
+        </a>
+
+
+        <a
+            class="menu-card"
+            href="#study"
+        >
+
+            <span class="menu-icon">
+                🔬
+            </span>
+
+            <span class="menu-title">
+                ความสนใจในการศึกษาต่อ
+            </span>
+
+            <span class="menu-small">
+                Future Study
+            </span>
+
+        </a>
+
+
+        <a
+            class="menu-card"
+            href="#activities"
+        >
+
+            <span class="menu-icon">
+                🏆
+            </span>
+
+            <span class="menu-title">
+                กิจกรรมที่เข้าร่วม
+            </span>
+
+            <span class="menu-small">
+                Activities
+            </span>
+
+        </a>
+
+
+        <a
+            class="menu-card"
+            href="#talent"
+        >
+
+            <span class="menu-icon">
+                🌟
+            </span>
+
+            <span class="menu-title">
+                ความสามารถพิเศษ
+            </span>
+
+            <span class="menu-small">
+                Skills & Talent
+            </span>
+
+        </a>
+
 
     </div>
 
-    <footer>
-        ✦ ✧ Welcome to my Portfolio ✧ ✦
-    </footer>
+</section>
+
+
+<!-- =================================================
+     📖 เนื้อหาแต่ละหัวข้อ
+================================================= -->
+
+<div class="content">
+
+
+<section
+    class="section"
+    id="preface"
+>
+
+    <h2>
+        💌 คำนำ
+    </h2>
+
+    <p>
+        แฟ้มสะสมผลงานฉบับนี้จัดทำขึ้น
+        เพื่อรวบรวมประวัติส่วนตัว
+        ประวัติการศึกษา กิจกรรม
+        ความสนใจ และความสามารถของข้าพเจ้า
+    </p>
+
+    <p>
+        ข้าพเจ้าหวังว่า Portfolio ฉบับนี้
+        จะสะท้อนให้เห็นถึงความตั้งใจ
+        ความสนใจ และพัฒนาการของข้าพเจ้า
+        ในด้านต่าง ๆ
+    </p>
+
+    <a href="#" class="back">
+        💎 กลับด้านบน
+    </a>
+
+</section>
+
+
+
+<section
+    class="section"
+    id="profile"
+>
+
+    <h2>
+        👩‍🎓 ประวัติส่วนตัว
+    </h2>
+
+    <h3>
+        ข้อมูลส่วนตัว
+    </h3>
+
+    <p>
+        <strong>ชื่อ:</strong>
+        อริสรา แซ่ตั๊ง
+    </p>
+
+    <p>
+        <strong>ชื่อภาษาอังกฤษ:</strong>
+        Arisara Saetang
+    </p>
+
+    <p>
+        <strong>ระดับการศึกษา:</strong>
+        มัธยมศึกษาปีที่ 6
+    </p>
+
+    <p>
+        <strong>ความสนใจ:</strong>
+        Math & Science Gifted
+    </p>
+
+    <a href="#" class="back">
+        💎 กลับด้านบน
+    </a>
+
+</section>
+
+
+
+<section
+    class="section"
+    id="education"
+>
+
+    <h2>
+        🎓 ประวัติการศึกษา
+    </h2>
+
+    <h3>
+        🏫 ระดับมัธยมศึกษา
+    </h3>
+
+    <p>
+        กำลังศึกษาอยู่ในระดับมัธยมศึกษาปีที่ 6
+        โดยมีความสนใจในวิชาคณิตศาสตร์
+        วิทยาศาสตร์ และการเรียนรู้ด้านเทคโนโลยี
+    </p>
+
+    <h3>
+        📚 วิชาที่สนใจ
+    </h3>
+
+    <p>
+        คณิตศาสตร์ • วิทยาศาสตร์ •
+        เทคโนโลยี • การเขียนโปรแกรม
+    </p>
+
+    <a href="#" class="back">
+        💎 กลับด้านบน
+    </a>
+
+</section>
+
+
+
+<section
+    class="section"
+    id="study"
+>
+
+    <h2>
+        🔬 ความสนใจในการศึกษาต่อ
+    </h2>
+
+    <p>
+        มีความสนใจในการศึกษาต่อ
+        ในสาขาที่เกี่ยวข้องกับ
+        วิทยาศาสตร์ คณิตศาสตร์
+        เทคโนโลยี และคอมพิวเตอร์
+    </p>
+
+    <p>
+        ต้องการพัฒนาความรู้และทักษะ
+        เพื่อนำไปประยุกต์ใช้ในการเรียน
+        การทำโครงงาน และการทำงานในอนาคต
+    </p>
+
+    <a href="#" class="back">
+        💎 กลับด้านบน
+    </a>
+
+</section>
+
+
+
+<section
+    class="section"
+    id="activities"
+>
+
+    <h2>
+        🏆 กิจกรรมที่เข้าร่วม
+    </h2>
+
+    <h3>
+        💻 กิจกรรมด้านเทคโนโลยี
+    </h3>
+
+    <p>
+        เข้าร่วมกิจกรรมและการเรียนรู้
+        ที่เกี่ยวข้องกับคอมพิวเตอร์
+        เทคโนโลยี และการเขียนโปรแกรม
+    </p>
+
+    <h3>
+        🧪 กิจกรรมด้านวิชาการ
+    </h3>
+
+    <p>
+        เข้าร่วมกิจกรรมทางวิทยาศาสตร์
+        คณิตศาสตร์ และกิจกรรมทางวิชาการ
+        เพื่อพัฒนาความรู้และประสบการณ์
+    </p>
+
+    <a href="#" class="back">
+        💎 กลับด้านบน
+    </a>
+
+</section>
+
+
+
+<section
+    class="section"
+    id="talent"
+>
+
+    <h2>
+        🌟 ความสามารถพิเศษ
+    </h2>
+
+    <h3>
+        💻 การใช้เทคโนโลยี
+    </h3>
+
+    <p>
+        สามารถเรียนรู้และใช้งานเทคโนโลยี
+        รวมถึงสนใจการสร้างเว็บไซต์
+        ด้วย HTML และ CSS
+    </p>
+
+    <h3>
+        🎨 ความคิดสร้างสรรค์
+    </h3>
+
+    <p>
+        สนใจการออกแบบหน้าเว็บไซต์
+        การเลือกใช้สี การจัดวางองค์ประกอบ
+        และการนำเสนอข้อมูลให้น่าสนใจ
+    </p>
+
+    <h3>
+        🧠 การคิดวิเคราะห์
+    </h3>
+
+    <p>
+        ชอบการแก้ปัญหา การคิดอย่างเป็นระบบ
+        และการเรียนรู้สิ่งใหม่ ๆ
+    </p>
+
+    <a href="#" class="back">
+        💎 กลับด้านบน
+    </a>
+
+</section>
+
+
+</div>
 
 </div>
 
 </body>
+
 </html>
