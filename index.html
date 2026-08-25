@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>หน้าแนะนำตัวของฉัน</title>
 
 <style>
+
+/* =========================================
+   🌸 พื้นหลังโทนชมพู - เทอร์ควอยซ์ - ม่วง
+========================================= */
+
 * {
     box-sizing: border-box;
 }
@@ -14,65 +20,106 @@ body {
     margin: 0;
     min-height: 100vh;
 
-    background:
-        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.25) 0 50px, transparent 51px),
-        radial-gradient(circle at 85% 80%, rgba(255,255,255,0.18) 0 80px, transparent 81px),
-        radial-gradient(circle at 80% 15%, rgba(255,255,255,0.15) 0 35px, transparent 36px),
-        linear-gradient(135deg, #16bfb8, #40e0d0, #66d9e8);
-
-    color: #174f5a;
-    text-align: center;
-    padding: 50px 20px;
     font-family: "Tahoma", "Arial", sans-serif;
-    overflow: hidden;
+
+    color: #68456b;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    overflow-x: hidden;
+
+    background:
+
+        /* แสงกลม */
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,0.65) 0px,
+            rgba(255,255,255,0) 180px
+        ),
+
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(255,220,245,0.7) 0px,
+            rgba(255,220,245,0) 200px
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(180,255,246,0.6) 0px,
+            rgba(180,255,246,0) 220px
+        ),
+
+        /* สีหลัก */
+        linear-gradient(
+            135deg,
+            #ffd6e7 0%,
+            #c9f7f2 45%,
+            #dcd1ff 100%
+        );
 }
 
-/* วงแหวนตกแต่งพื้นหลัง */
+
+/* =========================================
+   💕 ลวดลายพื้นหลัง
+========================================= */
+
 body::before {
     content: "";
+
     position: fixed;
+
     width: 500px;
     height: 500px;
-    border: 3px solid rgba(255,255,255,0.2);
+
     border-radius: 50%;
-    top: -180px;
-    left: -150px;
+
+    top: -250px;
+    left: -180px;
+
+    border: 3px solid rgba(255,255,255,0.35);
 
     box-shadow:
-        0 0 0 40px rgba(255,255,255,0.08),
-        0 0 0 80px rgba(255,255,255,0.06),
-        0 0 0 120px rgba(255,255,255,0.04);
+
+        0 0 0 40px rgba(255,255,255,0.12),
+        0 0 0 80px rgba(255,255,255,0.08),
+        0 0 0 120px rgba(255,255,255,0.05);
 
     pointer-events: none;
 }
 
-/* =========================
-   💎 เอฟเฟกต์เพชร
-========================= */
+
+/* =========================================
+   💎 เพชรลอย
+========================================= */
 
 .gem {
     position: fixed;
+
     width: 18px;
     height: 18px;
 
-    background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #bffcff 25%,
-        #ffffff 45%,
-        #ffbde8 70%,
-        #ffffff 100%
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #a8fff5,
+            #ffffff,
+            #ffc4e6,
+            #ffffff
+        );
 
     transform: rotate(45deg);
-    border-radius: 3px;
+
+    border-radius: 4px;
 
     box-shadow:
-        0 0 8px #ffffff,
+        0 0 8px white,
         0 0 18px #8ffff8,
         0 0 30px rgba(255,255,255,0.8);
 
-    opacity: 0.85;
+    opacity: 0.8;
 
     pointer-events: none;
 
@@ -81,18 +128,33 @@ body::before {
         sparkle 2s ease-in-out infinite;
 }
 
-/* ประกายแฉกของเพชร */
+.gem.small {
+    width: 9px;
+    height: 9px;
+}
+
+.gem.big {
+    width: 27px;
+    height: 27px;
+}
+
+
+/* ประกายเพชร */
+
 .gem::before,
 .gem::after {
+
     content: "";
+
     position: absolute;
+
     left: 50%;
     top: 50%;
 
     width: 35px;
     height: 2px;
 
-    background: rgba(255,255,255,0.9);
+    background: white;
 
     transform: translate(-50%, -50%) rotate(-45deg);
 
@@ -100,30 +162,42 @@ body::before {
 }
 
 .gem::after {
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform:
+        translate(-50%, -50%)
+        rotate(45deg);
 }
 
-/* การลอยของเพชร */
+
+/* การลอย */
+
 @keyframes floatGem {
 
     0% {
-        transform: translateY(30px) rotate(45deg);
+        transform:
+            translateY(30px)
+            rotate(45deg);
     }
 
     50% {
-        transform: translateY(-50px) rotate(135deg);
+        transform:
+            translateY(-50px)
+            rotate(135deg);
     }
 
     100% {
-        transform: translateY(30px) rotate(225deg);
+        transform:
+            translateY(30px)
+            rotate(225deg);
     }
 }
 
-/* เอฟเฟกต์วิบวับ */
+
+/* วิบวับ */
+
 @keyframes sparkle {
 
-    0%, 100% {
-        opacity: 0.35;
+    0%,100% {
+        opacity: 0.3;
         filter: brightness(0.8);
     }
 
@@ -133,202 +207,251 @@ body::before {
     }
 }
 
-/* เพชรขนาดเล็ก */
-.gem.small {
-    width: 9px;
-    height: 9px;
-}
 
-/* เพชรขนาดใหญ่ */
-.gem.big {
-    width: 25px;
-    height: 25px;
-}
+/* ตำแหน่งเพชร */
 
-/* =========================
-   💎 การ์ด
-========================= */
+.gem1 { left: 7%; top: 15%; }
+.gem2 { left: 18%; top: 70%; animation-delay: 1s; }
+.gem3 { left: 35%; top: 8%; animation-delay: 2s; }
+.gem4 { left: 55%; top: 80%; animation-delay: 3s; }
+.gem5 { left: 72%; top: 18%; animation-delay: 1.5s; }
+.gem6 { left: 88%; top: 55%; animation-delay: 2.5s; }
+.gem7 { left: 15%; top: 45%; animation-delay: 4s; }
+.gem8 { left: 80%; top: 85%; animation-delay: 3.5s; }
+.gem9 { left: 45%; top: 90%; animation-delay: 1s; }
+.gem10 { left: 93%; top: 12%; animation-delay: 4.5s; }
+
+
+/* =========================================
+   💗 กรอบรูปหัวใจ
+========================================= */
 
 .card {
+
     position: relative;
+
     z-index: 10;
 
-    background: rgba(255,255,255,0.92);
+    width: min(520px, 92vw);
 
-    border-radius: 35px;
+    min-height: 560px;
 
-    box-shadow:
-        0 15px 35px rgba(0,80,90,0.20),
-        0 5px 15px rgba(255,255,255,0.4);
+    margin: 30px auto;
 
-    max-width: 500px;
-    margin: 50px auto;
+    padding: 125px 75px 100px;
 
-    padding: 40px 30px;
+    display: flex;
 
-    border: 3px solid rgba(255,255,255,0.7);
-}
+    flex-direction: column;
 
-/* หัวข้อ */
-h1 {
-    color: #087f8c;
+    justify-content: center;
 
-    font-size: 32px;
+    align-items: center;
 
-    margin-bottom: 25px;
-
-    text-shadow:
-        2px 2px 0 #b8f3f0,
-        3px 3px 8px rgba(0,0,0,0.1);
-}
-
-/* ข้อความ */
-p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #28656d;
-}
-
-/* ชื่อ */
-strong {
-    color: #e05a8a;
-    font-size: 20px;
-
-    text-shadow:
-        0 0 8px rgba(255,100,160,0.2);
-}
-
-/* =========================
-   🌸 ปุ่ม
-========================= */
-
-.btn {
-    display: inline-block;
-
-    margin-top: 20px;
-
-    padding: 14px 28px;
+    /* รูปหัวใจ */
 
     background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.96),
+            rgba(255,238,248,0.94)
+        );
+
+    clip-path: polygon(
+        50% 92%,
+        8% 52%,
+        5% 35%,
+        10% 20%,
+        23% 12%,
+        35% 15%,
+        50% 30%,
+        65% 15%,
+        77% 12%,
+        90% 20%,
+        95% 35%,
+        92% 52%
+    );
+
+    filter:
+        drop-shadow(0 15px 20px rgba(150,90,150,0.25))
+        drop-shadow(0 0 15px rgba(255,255,255,0.8));
+
+}
+
+
+/* เส้นขอบหัวใจ */
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    background:
+
         linear-gradient(
             135deg,
-            #ff7eb3,
-            #ff758c
+            rgba(255,255,255,0.3),
+            rgba(255,180,220,0.15)
         );
+
+    clip-path: polygon(
+        50% 92%,
+        8% 52%,
+        5% 35%,
+        10% 20%,
+        23% 12%,
+        35% 15%,
+        50% 30%,
+        65% 15%,
+        77% 12%,
+        90% 20%,
+        95% 35%,
+        92% 52%
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ✨ หัวข้อ
+========================================= */
+
+h1 {
+
+    color: #b54f88;
+
+    font-size: 30px;
+
+    line-height: 1.4;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+
+        2px 2px 0 #ffe5f3,
+
+        0 0 10px rgba(255,120,190,0.3);
+}
+
+
+/* =========================================
+   🌷 ข้อความ
+========================================= */
+
+p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #65506d;
+
+    margin: 10px 0;
+}
+
+
+strong {
+
+    color: #d85c91;
+
+    font-size: 19px;
+
+    text-shadow:
+        0 0 7px rgba(255,120,180,0.25);
+}
+
+
+/* =========================================
+   💎 ปุ่ม
+========================================= */
+
+.btn {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff83b8,
+            #c58cff,
+            #61dcd4
+        );
+
+    background-size: 200% 200%;
 
     color: white;
 
     text-decoration: none;
 
-    font-size: 18px;
+    font-size: 17px;
+
     font-weight: bold;
 
-    border-radius: 30px;
-
     box-shadow:
-        0 6px 15px rgba(255,117,140,0.35);
 
-    transition: all 0.3s ease;
+        0 7px 20px rgba(205,100,170,0.35),
+
+        0 0 15px rgba(255,255,255,0.5);
+
+    transition: 0.4s;
 }
+
 
 .btn:hover {
-    transform: translateY(-5px) scale(1.05);
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff5f9e,
-            #ff477e
-        );
+    transform:
+        translateY(-6px)
+        scale(1.07);
+
+    background-position: 100% 50%;
 
     box-shadow:
-        0 10px 25px rgba(255,80,120,0.45);
+
+        0 12px 30px rgba(205,100,170,0.45),
+
+        0 0 25px rgba(255,255,255,0.8);
 }
 
-/* ดาวด้านล่าง */
-.card::after {
-    content: "✦  ✧  💎  ✧  ✦";
 
-    display: block;
+/* =========================================
+   🌟 ดาวตกแต่ง
+========================================= */
 
-    margin-top: 25px;
+.star {
 
-    color: #40c9c3;
+    color: #c987e8;
 
     font-size: 20px;
 
-    letter-spacing: 6px;
+    letter-spacing: 8px;
+
+    margin-top: 15px;
+
+    text-shadow:
+        0 0 10px #ffffff;
 }
 
-/* =========================
-   💎 เพชรแต่ละดวง
-========================= */
-
-.gem1 {
-    left: 8%;
-    top: 15%;
-    animation-delay: 0s;
-}
-
-.gem2 {
-    left: 20%;
-    top: 70%;
-    animation-delay: 1s;
-}
-
-.gem3 {
-    left: 35%;
-    top: 10%;
-    animation-delay: 2s;
-}
-
-.gem4 {
-    left: 55%;
-    top: 80%;
-    animation-delay: 3s;
-}
-
-.gem5 {
-    left: 72%;
-    top: 20%;
-    animation-delay: 1.5s;
-}
-
-.gem6 {
-    left: 88%;
-    top: 55%;
-    animation-delay: 2.5s;
-}
-
-.gem7 {
-    left: 15%;
-    top: 45%;
-    animation-delay: 4s;
-}
-
-.gem8 {
-    left: 80%;
-    top: 85%;
-    animation-delay: 3.5s;
-}
-
-.gem9 {
-    left: 45%;
-    top: 90%;
-    animation-delay: 1s;
-}
-
-.gem10 {
-    left: 93%;
-    top: 12%;
-    animation-delay: 4.5s;
-}
 </style>
 </head>
 
+
 <body>
 
-<!-- 💎 เพชรลอย ๆ ทั่วหน้าเว็บ -->
+
+<!-- 💎 เพชรลอยทั่วเว็บ -->
+
 <div class="gem gem1 big"></div>
 <div class="gem gem2 small"></div>
 <div class="gem gem3"></div>
@@ -340,34 +463,54 @@ strong {
 <div class="gem gem9 small"></div>
 <div class="gem gem10"></div>
 
-<!-- 💎 เนื้อหา -->
+
+<!-- 💗 หัวใจ -->
+
 <div class="card">
 
     <h1>
-        💎 ยินดีต้อนรับสู่โปรไฟล์ของฉัน 🌸
+        💗 ยินดีต้อนรับสู่<br>
+        โปรไฟล์ของฉัน 💎
     </h1>
+
 
     <p>
         สวัสดีค่ะ! ฉันชื่อ
+    </p>
+
+    <p>
         <strong>
             อริสรา แซ่ตั๊ง<br>
             (Arisara Saetang)
         </strong>
     </p>
 
+
     <p>
-        💡 ขณะนี้กำลังศึกษา/สนใจด้าน<br>
-        <strong>Math & Science Gifted</strong>
+        🧪 ขณะนี้กำลังศึกษา/สนใจด้าน
     </p>
+
+    <p>
+        <strong>
+            Math & Science Gifted
+        </strong>
+    </p>
+
 
     <p>
         ✨ นี่คือเว็บไซต์แรกของฉัน<br>
         ที่โฮสต์บน GitHub Pages!
     </p>
 
+
     <a href="portfolio.html" class="btn">
         💎 แฟ้มสะสมผลงาน
     </a>
+
+
+    <div class="star">
+        ✦ ✧ 💎 ✧ ✦
+    </div>
 
 </div>
 
