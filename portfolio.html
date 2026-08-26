@@ -583,7 +583,6 @@ body::before {
 
 /* =====================================================
    🖼️ กรอบรูป
-   ⭐ รูปไม่เปลี่ยนสีเด็ดขาด
 ===================================================== */
 
 .photo-frame {
@@ -595,15 +594,7 @@ body::before {
     border-radius: 50%;
 
     background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #00e5d4,
-            #00a9e8,
-            #ffffff,
-            #00ffe1
-        );
-
+       
     background-size: 300% 300%;
 
     box-shadow:
@@ -616,7 +607,6 @@ body::before {
 }
 
 
-/* เอฟเฟกต์เฉพาะกรอบ ไม่แตะรูป */
 
 @keyframes frameLight {
 
@@ -643,11 +633,6 @@ body::before {
 }
 
 
-/* ⭐ สำคัญมาก
-   ไม่มี filter
-   ไม่มี hue-rotate
-   ไม่มี animation
-   กับรูป */
 .photo-frame img {
 
     display: block;
