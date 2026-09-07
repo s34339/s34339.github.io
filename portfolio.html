@@ -168,6 +168,9 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#7fa8c9;text-align:center;}
 .cert-box{transition:.3s;} .cert-box:hover{transform:translateY(-6px) scale(1.03);border-color:#ffb6d9;background:rgba(255,240,248,.6);}
 .cert-box .cert-icon{font-size:40px;display:inline-block;animation:iconBounce 2.4s ease-in-out infinite;}
+.cert-box.has-img{border-style:solid;background:rgba(255,255,255,.75);padding:14px;}
+.cert-box img{width:100%;max-height:170px;object-fit:cover;border-radius:18px;border:3px solid white;box-shadow:0 6px 16px rgba(160,210,255,.35);}
+.cert-box .cert-caption{font-size:13px;color:#4a3b55;line-height:1.6;}
 @keyframes iconBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:26px;}
 .info-item{padding:14px 20px;border-radius:20px;background:rgba(255,240,248,.6);border:2px solid #ffe3f0;box-shadow:0 6px 16px rgba(255,190,220,.25);transition:.3s;}
@@ -364,9 +367,9 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     <div class="section-label">🏆 เกียรติบัตรและกิจกรรมที่เข้าร่วม</div>
     <div class="cert-grid">
 
-      <div class="cert-box">
-        <span class="cert-icon">📜</span>
-        ✏️ เว้นไว้ให้ใส่เกียรติบัตร<br>(รูปภาพ)
+      <div class="cert-box has-img">
+        <img src="IMG_6363.jpeg" alt="เกียรติบัตร">
+        <div class="cert-caption">✏️ ใส่คำอธิบายเกียรติบัตรตรงนี้</div>
       </div>
 
       <div class="cert-box">
