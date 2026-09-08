@@ -6,6 +6,10 @@
 <title>หน้าแนะนำตัวของฉัน</title>
 
 <style>
+html {
+    overflow-x: hidden;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -18,13 +22,42 @@ body {
         radial-gradient(circle at 15% 20%, rgba(255,255,255,0.25) 0 50px, transparent 51px),
         radial-gradient(circle at 85% 80%, rgba(255,255,255,0.18) 0 80px, transparent 81px),
         radial-gradient(circle at 80% 15%, rgba(255,255,255,0.15) 0 35px, transparent 36px),
-        linear-gradient(135deg, #16bfb8, #40e0d0, #66d9e8);
+        linear-gradient(160deg, #d7f2ff 0%, #eafce0 40%, #d3f5c0 75%, #bdeeae 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 300% 300%;
+    animation: bgDrift 14s ease-in-out infinite;
 
-    color: #174f5a;
+    color: #3f6b3a;
     text-align: center;
     padding: 50px 20px;
     font-family: "Tahoma", "Arial", sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+@keyframes bgDrift {
+    0%,100% { background-position: 0 0, 0 0, 0 0, 0% 50%; }
+    50% { background-position: 0 0, 0 0, 0 0, 100% 50%; }
+}
+
+/* ระยิบระยับผิวน้ำเบา ๆ ทั่วพื้นหลัง */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .7;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.85) 1px, transparent 1.4px),
+        radial-gradient(circle, rgba(255,222,240,.7) 1px, transparent 1.4px);
+    background-size: 70px 70px, 110px 110px;
+    background-position: 0 0, 35px 55px;
+    animation: shimmerDrift 8s linear infinite;
+}
+@keyframes shimmerDrift {
+    0% { background-position: 0 0, 35px 55px; }
+    100% { background-position: 70px 70px, -75px 165px; }
 }
 
 /* วงแหวนตกแต่งพื้นหลัง */
@@ -44,35 +77,81 @@ body::before {
         0 0 0 120px rgba(255,255,255,0.04);
 
     pointer-events: none;
+    animation: ringSpin 30s linear infinite;
+}
+@keyframes ringSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* =========================
-   💎 เอฟเฟกต์เพชร
+   🫧 ฟองอากาศลอยขึ้น
+========================= */
+.bubble {
+    position: fixed;
+    bottom: -60px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.75);
+    background: rgba(255,255,255,.1);
+    box-shadow: inset 2px 2px 6px rgba(255,255,255,.8), 0 0 12px rgba(255,255,255,.4);
+    pointer-events: none;
+    z-index: 1;
+    animation: bubbleRise 10s linear infinite;
+}
+@keyframes bubbleRise {
+    0% { transform: translateY(0) translateX(0) scale(.7); opacity: 0; }
+    12% { opacity: .8; }
+    50% { transform: translateY(-55vh) translateX(25px) scale(1); }
+    100% { transform: translateY(-115vh) translateX(-20px) scale(1.15); opacity: 0; }
+}
+
+/* =========================
+   🎐 สติกเกอร์ลอยตกแต่ง
+========================= */
+.floaty {
+    position: fixed;
+    z-index: 1;
+    pointer-events: none;
+    line-height: 1;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,.85));
+    animation: floatySway 7s ease-in-out infinite;
+}
+@keyframes floatySway {
+    0% { transform: translateY(0) translateX(0) rotate(-6deg); }
+    25% { transform: translateY(-16px) translateX(8px) rotate(4deg); }
+    50% { transform: translateY(6px) translateX(-8px) rotate(-4deg); }
+    75% { transform: translateY(-10px) translateX(6px) rotate(6deg); }
+    100% { transform: translateY(0) translateX(0) rotate(-6deg); }
+}
+
+/* =========================
+   🫧 เอฟเฟกต์ไข่มุกเรืองแสง
 ========================= */
 
-.gem {
+.pearl {
     position: fixed;
     width: 18px;
     height: 18px;
+    z-index: 2;
 
-    background: linear-gradient(
-        135deg,
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 32% 28%,
         #ffffff 0%,
-        #bffcff 25%,
-        #ffffff 45%,
-        #ffbde8 70%,
-        #ffffff 100%
+        #f3ffe3 22%,
+        #d3f2b8 48%,
+        #a8e08a 75%,
+        #6fbf52 100%
     );
-
-    transform: rotate(45deg);
-    border-radius: 3px;
 
     box-shadow:
         0 0 8px #ffffff,
-        0 0 18px #8ffff8,
-        0 0 30px rgba(255,255,255,0.8);
+        0 0 18px #d9ffb0,
+        0 0 30px rgba(255,255,255,0.7),
+        inset -3px -3px 6px rgba(60,100,30,.25);
 
-    opacity: 0.85;
+    opacity: 0.9;
 
     pointer-events: none;
 
@@ -81,41 +160,32 @@ body::before {
         sparkle 2s ease-in-out infinite;
 }
 
-/* ประกายแฉกของเพชร */
-.gem::before,
-.gem::after {
+/* จุดประกายเล็ก ๆ บนไข่มุก */
+.pearl::before {
     content: "";
     position: absolute;
-    left: 50%;
-    top: 50%;
-
-    width: 35px;
-    height: 2px;
-
-    background: rgba(255,255,255,0.9);
-
-    transform: translate(-50%, -50%) rotate(-45deg);
-
-    box-shadow: 0 0 8px white;
+    left: 26%;
+    top: 22%;
+    width: 35%;
+    height: 22%;
+    border-radius: 50%;
+    background: rgba(255,255,255,.9);
+    filter: blur(.5px);
 }
 
-.gem::after {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-/* การลอยของเพชร */
+/* การลอยของไข่มุก */
 @keyframes floatGem {
 
     0% {
-        transform: translateY(30px) rotate(45deg);
+        transform: translateY(30px);
     }
 
     50% {
-        transform: translateY(-50px) rotate(135deg);
+        transform: translateY(-50px);
     }
 
     100% {
-        transform: translateY(30px) rotate(225deg);
+        transform: translateY(30px);
     }
 }
 
@@ -133,17 +203,67 @@ body::before {
     }
 }
 
-/* เพชรขนาดเล็ก */
-.gem.small {
+/* ไข่มุกขนาดเล็ก */
+.pearl.small {
     width: 9px;
     height: 9px;
 }
 
-/* เพชรขนาดใหญ่ */
-.gem.big {
+/* ไข่มุกขนาดใหญ่ */
+.pearl.big {
     width: 25px;
     height: 25px;
 }
+
+/* =========================
+   🖼️ กรอบตกแต่งรอบการ์ด
+========================= */
+
+.frame-wrap {
+    position: relative;
+    max-width: 540px;
+    margin: 50px auto;
+    z-index: 9;
+}
+
+.frame-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border: 3px dashed rgba(255,255,255,.85);
+    border-radius: 45px;
+    pointer-events: none;
+    box-shadow: 0 0 20px rgba(255,255,255,.5);
+    animation: framePulse 2.6s ease-in-out infinite;
+}
+
+.frame-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -27px;
+    border: 2px dotted rgba(255,126,179,.65);
+    border-radius: 56px;
+    pointer-events: none;
+    animation: framePulse 2.6s ease-in-out infinite .4s;
+}
+
+@keyframes framePulse {
+    0%,100% { opacity: .5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.015); }
+}
+
+.frame-corner {
+    position: absolute;
+    font-size: 26px;
+    z-index: 11;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,.9));
+    animation: floatySway 4s ease-in-out infinite;
+}
+.corner-tl { top: -18px; left: -16px; }
+.corner-tr { top: -18px; right: -16px; animation-delay: .5s; }
+.corner-bl { bottom: -18px; left: -16px; animation-delay: 1s; }
+.corner-br { bottom: -18px; right: -16px; animation-delay: 1.5s; }
 
 /* =========================
    💎 การ์ด
@@ -162,40 +282,124 @@ body::before {
         0 5px 15px rgba(255,255,255,0.4);
 
     max-width: 500px;
-    margin: 50px auto;
+    margin: 0 auto;
 
     padding: 40px 30px;
 
     border: 3px solid rgba(255,255,255,0.7);
+
+    opacity: 0;
+    transform: scale(.82) translateY(50px) rotate(-1.5deg);
+    animation: cardEnter .9s cubic-bezier(.22,.85,.32,1.2) .15s forwards,
+               cardGlow 3.2s ease-in-out 1.1s infinite;
+    overflow: hidden;
+}
+
+@keyframes cardEnter {
+    to { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); }
+}
+
+@keyframes cardGlow {
+    0%,100% {
+        box-shadow: 0 15px 35px rgba(0,80,90,0.20), 0 5px 15px rgba(255,255,255,0.4), 0 0 25px rgba(64,224,208,.35);
+    }
+    50% {
+        box-shadow: 0 15px 45px rgba(0,80,90,0.25), 0 5px 25px rgba(255,255,255,0.7), 0 0 45px rgba(255,126,179,.45);
+    }
+}
+
+/* แสงกวาดผ่านการ์ดเบา ๆ */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+    transform: skewX(-20deg);
+    animation: cardSheen 5s ease-in-out 1.3s infinite;
+    pointer-events: none;
+}
+@keyframes cardSheen {
+    0% { left: -60%; }
+    35%, 100% { left: 140%; }
 }
 
 /* หัวข้อ */
 h1 {
-    color: #087f8c;
+    color: #4c8c3f;
 
     font-size: 32px;
 
-    margin-bottom: 25px;
+    margin-bottom: 6px;
 
     text-shadow:
-        2px 2px 0 #b8f3f0,
+        2px 2px 0 #dff7c8,
         3px 3px 8px rgba(0,0,0,0.1);
+
+    background: linear-gradient(90deg, #4c8c3f, #ffb648, #ff7eb3, #a55fd6, #4c8c3f);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleShift 5s linear infinite;
+}
+@keyframes titleShift {
+    to { background-position: 300% center; }
+}
+
+.h-underline {
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin: 4px auto 22px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #7fce5c, #ff9ecb);
+    box-shadow: 0 0 10px rgba(255,126,179,.6);
+    animation: underlinePulse 2.4s ease-in-out infinite;
+}
+@keyframes underlinePulse {
+    0%,100% { width: 90px; opacity: .8; }
+    50% { width: 130px; opacity: 1; }
 }
 
 /* ข้อความ */
 p {
     font-size: 18px;
     line-height: 1.8;
-    color: #28656d;
+    color: #4a6b42;
 }
 
 /* ชื่อ */
 strong {
-    color: #e05a8a;
+    color: #d1449a;
     font-size: 20px;
 
     text-shadow:
         0 0 8px rgba(255,100,160,0.2);
+}
+
+/* avatar วงกลมเรืองแสงด้านบนการ์ด */
+.avatar-ring {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    background: linear-gradient(135deg, #d9f7c4, #ffd6ec, #fff3b0, #d9f7c4);
+    background-size: 250% 250%;
+    box-shadow: 0 0 20px rgba(64,224,208,.6), 0 0 35px rgba(255,126,179,.4);
+    animation: avatarGlow 4s ease infinite, avatarBob 3s ease-in-out infinite;
+}
+@keyframes avatarGlow {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+@keyframes avatarBob {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-6px) rotate(3deg); }
 }
 
 /* =========================
@@ -203,7 +407,9 @@ strong {
 ========================= */
 
 .btn {
+    position: relative;
     display: inline-block;
+    overflow: hidden;
 
     margin-top: 20px;
 
@@ -229,6 +435,27 @@ strong {
         0 6px 15px rgba(255,117,140,0.35);
 
     transition: all 0.3s ease;
+    animation: btnPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+    0%,100% { box-shadow: 0 6px 15px rgba(255,117,140,0.35); }
+    50% { box-shadow: 0 8px 24px rgba(255,117,140,0.6), 0 0 20px rgba(255,180,220,.6); }
+}
+
+/* แสงวิ่งผ่านปุ่ม */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.75), transparent);
+    transform: skewX(-20deg);
+    animation: btnSheen 3s ease-in-out infinite;
+}
+@keyframes btnSheen {
+    0% { left: -75%; }
+    40%, 100% { left: 140%; }
 }
 
 .btn:hover {
@@ -247,78 +474,99 @@ strong {
 
 /* ดาวด้านล่าง */
 .card::after {
-    content: "✦  ✧  💎  ✧  ✦";
+    content: "✦  ✧  🩺  ✧  ✦";
 
     display: block;
 
     margin-top: 25px;
 
-    color: #40c9c3;
+    color: #6bbf59;
 
     font-size: 20px;
 
     letter-spacing: 6px;
+    animation: starRow 2.6s ease-in-out infinite;
+}
+@keyframes starRow {
+    0%,100% { opacity: .6; letter-spacing: 6px; }
+    50% { opacity: 1; letter-spacing: 9px; }
+}
+
+/* =========================
+   ✨ ประกายตามเมาส์
+========================= */
+.cursor-sparkle {
+    position: fixed;
+    z-index: 50;
+    pointer-events: none;
+    font-size: 16px;
+    line-height: 1;
+    animation: sparkleFade .8s ease-out forwards;
+}
+@keyframes sparkleFade {
+    0% { transform: translate(-50%,-50%) scale(.4) rotate(0deg); opacity: 1; }
+    100% { transform: translate(-50%,-50%) scale(1.3) rotate(120deg) translateY(-22px); opacity: 0; }
 }
 
 /* =========================
    💎 เพชรแต่ละดวง
 ========================= */
 
-.gem1 {
+.pearl1 {
     left: 8%;
     top: 15%;
     animation-delay: 0s;
 }
 
-.gem2 {
+.pearl2 {
     left: 20%;
     top: 70%;
     animation-delay: 1s;
 }
 
-.gem3 {
+.pearl3 {
     left: 35%;
     top: 10%;
     animation-delay: 2s;
 }
 
-.gem4 {
+.pearl4 {
     left: 55%;
     top: 80%;
     animation-delay: 3s;
 }
 
-.gem5 {
+.pearl5 {
     left: 72%;
     top: 20%;
     animation-delay: 1.5s;
 }
 
-.gem6 {
+.pearl6 {
     left: 88%;
     top: 55%;
     animation-delay: 2.5s;
 }
 
-.gem7 {
+.pearl7 {
     left: 15%;
     top: 45%;
     animation-delay: 4s;
 }
 
-.gem8 {
+.pearl8 {
     left: 80%;
     top: 85%;
     animation-delay: 3.5s;
 }
 
-.gem9 {
+.pearl9 {
     left: 45%;
     top: 90%;
     animation-delay: 1s;
 }
 
-.gem10 {
+.pearl10 {
     left: 93%;
     top: 12%;
     animation-delay: 4.5s;
@@ -328,48 +576,92 @@ strong {
 
 <body>
 
-<!-- 💎 เพชรลอย ๆ ทั่วหน้าเว็บ -->
-<div class="gem gem1 big"></div>
-<div class="gem gem2 small"></div>
-<div class="gem gem3"></div>
-<div class="gem gem4 small"></div>
-<div class="gem gem5 big"></div>
-<div class="gem gem6 small"></div>
-<div class="gem gem7"></div>
-<div class="gem gem8 big"></div>
-<div class="gem gem9 small"></div>
-<div class="gem gem10"></div>
+<!-- 🫧 ฟองอากาศลอย -->
+<div class="bubble" style="left:6%;width:22px;height:22px;animation-delay:0s"></div>
+<div class="bubble" style="left:22%;width:12px;height:12px;animation-delay:2.5s"></div>
+<div class="bubble" style="left:38%;width:30px;height:30px;animation-delay:5s"></div>
+<div class="bubble" style="left:58%;width:16px;height:16px;animation-delay:1.5s"></div>
+<div class="bubble" style="left:74%;width:26px;height:26px;animation-delay:4s"></div>
+<div class="bubble" style="left:90%;width:14px;height:14px;animation-delay:3s"></div>
+
+<!-- 🎐 สติกเกอร์ลอยตกแต่ง -->
+<span class="floaty" style="left:10%;top:30%;font-size:26px;animation-delay:.3s">🦋</span>
+<span class="floaty" style="left:85%;top:25%;font-size:24px;animation-delay:1.2s">🌻</span>
+<span class="floaty" style="left:78%;top:65%;font-size:30px;animation-delay:.8s">🩺</span>
+<span class="floaty" style="left:14%;top:75%;font-size:22px;animation-delay:2s">✨</span>
+<span class="floaty" style="left:50%;top:12%;font-size:22px;animation-delay:1.6s">🌸</span>
+
+<!-- 💎 ไข่มุกลอย ๆ ทั่วหน้าเว็บ -->
+<div class="pearl pearl1 big"></div>
+<div class="pearl pearl2 small"></div>
+<div class="pearl pearl3"></div>
+<div class="pearl pearl4 small"></div>
+<div class="pearl pearl5 big"></div>
+<div class="pearl pearl6 small"></div>
+<div class="pearl pearl7"></div>
+<div class="pearl pearl8 big"></div>
+<div class="pearl pearl9 small"></div>
+<div class="pearl pearl10"></div>
 
 <!-- 💎 เนื้อหา -->
-<div class="card">
+<div class="frame-wrap">
+    <span class="frame-corner corner-tl">🩺</span>
+    <span class="frame-corner corner-tr">🩺</span>
+    <span class="frame-corner corner-bl">🩺</span>
+    <span class="frame-corner corner-br">🩺</span>
 
-    <h1>
-        💎 ยินดีต้อนรับสู่โปรไฟล์ของฉัน 🌸
-    </h1>
+    <div class="card">
 
-    <p>
-        สวัสดีค่ะ! ฉันชื่อ
-        <strong>
-            อริสรา แซ่ตั๊ง<br>
-            (Arisara Saetang)
-        </strong>
-    </p>
+        <div class="avatar-ring">🩺</div>
 
-    <p>
-        💡 ขณะนี้กำลังศึกษา/สนใจด้าน<br>
-        <strong>Math & Science Gifted</strong>
-    </p>
+        <h1>
+            🩺 ยินดีต้อนรับสู่โปรไฟล์ของฉัน 🌸
+        </h1>
+        <span class="h-underline"></span>
 
-    <p>
-        ✨ นี่คือเว็บไซต์แรกของฉัน<br>
-        ที่โฮสต์บน GitHub Pages!
-    </p>
+        <p>
+            สวัสดีค่ะ! ฉันชื่อ
+            <strong>
+                อริสรา แซ่ตั๊ง<br>
+                (Arisara Saetang)
+            </strong>
+        </p>
 
-    <a href="portfolio.html" class="btn">
-        💎 แฟ้มสะสมผลงาน
-    </a>
+        <p>
+            💡 ขณะนี้กำลังศึกษา/สนใจด้าน<br>
+            <strong>Math & Science Gifted</strong>
+        </p>
 
+        <p>
+            ✨ นี่คือเว็บไซต์แรกของฉัน<br>
+            ที่โฮสต์บน GitHub Pages!
+        </p>
+
+        <a href="portfolio.html" class="btn">
+            🩺 แฟ้มสะสมผลงาน
+        </a>
+
+    </div>
 </div>
+
+<script>
+    /* ✨ ประกายเล็ก ๆ ตามเมาส์ */
+    const sparkleChars = ['✦', '✨', '🩺', '⭐'];
+    let lastSparkleTime = 0;
+    document.addEventListener('mousemove', (e) => {
+        const now = Date.now();
+        if (now - lastSparkleTime < 160) return;
+        lastSparkleTime = now;
+        const s = document.createElement('span');
+        s.className = 'cursor-sparkle';
+        s.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
+        s.style.left = e.clientX + 'px';
+        s.style.top = e.clientY + 'px';
+        s.style.color = Math.random() > 0.5 ? '#6bbf59' : '#ff7eb3';
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 820);
+    });
+</script>
 
 </body>
 </html>
