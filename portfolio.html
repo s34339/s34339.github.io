@@ -140,7 +140,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 .menu{margin-top:45px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
 .menu a{padding:25px 15px;text-decoration:none;color:#7a4a72;border-radius:28px;font-weight:bold;display:block;cursor:pointer;
   background:linear-gradient(135deg,#ffb3d9,#ffe3f0,#bfe7ff);background-size:200% 200%;
-  box-shadow:0 10px 25px rgba(255,180,220,.45);transition:.35s;animation:menuShine 5s ease infinite;}
+  box-shadow:0 10px 25px rgba(255,180,220,.45);transition:transform .35s, box-shadow .35s, opacity .5s ease, translate .5s ease;animation:menuShine 5s ease infinite;}
 @keyframes menuShine{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .menu a:nth-child(even){background:linear-gradient(135deg,#bfe0ff,#e6f3ff,#ffd6ec);background-size:200% 200%;box-shadow:0 10px 25px rgba(160,210,255,.45);}
 .menu a:hover{transform:translateY(-10px) scale(1.04);box-shadow:0 20px 40px rgba(255,200,230,.6);}
@@ -166,19 +166,19 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:10px;}
 .cert-box{padding:22px;border-radius:28px;border:3px dashed #bfe7ff;background:rgba(230,243,255,.5);min-height:220px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#7fa8c9;text-align:center;}
-.cert-box{transition:.3s;} .cert-box:hover{transform:translateY(-6px) scale(1.03);border-color:#ffb6d9;background:rgba(255,240,248,.6);}
+.cert-box{transition:transform .3s, box-shadow .3s, border-color .3s, background .3s, opacity .5s ease, translate .5s ease;} .cert-box:hover{transform:translateY(-6px) scale(1.03);border-color:#ffb6d9;background:rgba(255,240,248,.6);}
 .cert-box .cert-icon{font-size:40px;display:inline-block;animation:iconBounce 2.4s ease-in-out infinite;}
 .cert-box.has-img{border-style:solid;background:rgba(255,255,255,.75);padding:14px;}
 .cert-box img{width:100%;max-height:170px;object-fit:cover;border-radius:18px;border:3px solid white;box-shadow:0 6px 16px rgba(160,210,255,.35);}
 .cert-box .cert-caption{font-size:13px;color:#4a3b55;line-height:1.6;}
 @keyframes iconBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:26px;}
-.info-item{padding:14px 20px;border-radius:20px;background:rgba(255,240,248,.6);border:2px solid #ffe3f0;box-shadow:0 6px 16px rgba(255,190,220,.25);transition:.3s;}
+.info-item{padding:14px 20px;border-radius:20px;background:rgba(255,240,248,.6);border:2px solid #ffe3f0;box-shadow:0 6px 16px rgba(255,190,220,.25);transition:transform .3s, box-shadow .3s, opacity .5s ease, translate .5s ease;}
 .info-item:hover{transform:translateY(-5px) rotate(-1deg);box-shadow:0 12px 22px rgba(255,190,220,.4);}
 .info-item .info-label{font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#ff8fc2;}
 .info-item .info-value{margin-top:4px;font-size:16px;font-weight:bold;color:#4a3b55;}
 .highlight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:6px;}
-.highlight-box{padding:20px;border-radius:24px;background:rgba(255,255,255,.75);border:2px solid #bfe7ff;box-shadow:0 8px 20px rgba(160,210,255,.25);text-align:center;transition:.3s;}
+.highlight-box{padding:20px;border-radius:24px;background:rgba(255,255,255,.75);border:2px solid #bfe7ff;box-shadow:0 8px 20px rgba(160,210,255,.25);text-align:center;transition:transform .3s, box-shadow .3s, opacity .5s ease, translate .5s ease;}
 .highlight-box:hover{transform:translateY(-6px) rotate(1deg);box-shadow:0 14px 26px rgba(160,210,255,.4);}
 .highlight-box .h-icon{font-size:28px;}
 .highlight-box .h-title{margin-top:8px;font-weight:bold;font-size:15px;color:#6aa9d6;}
@@ -189,6 +189,119 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 .back-link{display:inline-block;margin-bottom:30px;padding:10px 26px;text-decoration:none;font-weight:bold;color:#7a4a72;
   background:linear-gradient(135deg,#ffe3f0,#e6f3ff);border-radius:30px;box-shadow:0 6px 16px rgba(255,180,220,.4);transition:.3s;}
 .back-link:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(255,180,220,.55);}
+
+/* ===== FUTURE STUDY HERO (โอเว่อขึ้น) ===== */
+.study-hero{position:relative;text-align:center;margin-bottom:30px;padding:30px 20px 26px;border-radius:36px;
+  background:linear-gradient(135deg,#ffe3f0,#e6f3ff,#fff0f8,#e6f3ff);background-size:300% 300%;animation:menuShine 6s ease infinite;
+  border:3px dashed #ffb6d9;overflow:hidden;box-shadow:0 12px 30px rgba(255,190,220,.35);}
+.study-hero::before, .study-hero::after{content:"";position:absolute;inset:6px;border:2px dotted #bfe0ff;border-radius:30px;
+  pointer-events:none;opacity:.6;animation:dotPulse 2.6s ease-in-out infinite;}
+.study-hero::after{inset:12px;border-color:#ffd6ec;animation-delay:.4s;}
+.study-ribbon{position:relative;display:inline-block;padding:9px 28px;font-size:14px;font-weight:bold;letter-spacing:1.5px;color:white;
+  background:linear-gradient(135deg,#ff8fc2,#ff6fb5);border-radius:22px;box-shadow:0 8px 18px rgba(255,140,190,.55);
+  animation:badgeWiggle 3s ease-in-out infinite;}
+.study-icons{position:relative;margin:18px 0 14px;font-size:32px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+.study-icons span{display:inline-block;filter:drop-shadow(0 0 6px rgba(255,255,255,.9));animation:iconBounce 2.2s ease-in-out infinite;}
+.study-icons span:nth-child(2n){animation-delay:.3s} .study-icons span:nth-child(3n){animation-delay:.6s}
+.study-faculty-badge{position:relative;display:inline-flex;align-items:center;gap:16px;margin-top:4px;padding:16px 32px;border-radius:32px;
+  background:rgba(255,255,255,.9);border:3px solid white;box-shadow:0 12px 28px rgba(150,120,180,.35);}
+.badge-seal{font-size:46px;line-height:1;animation:frameLight 4s ease infinite, iconBounce 2.4s ease-in-out infinite;}
+.badge-text{text-align:left;}
+.badge-main{font-size:25px;font-weight:bold;color:#ff6fb5;text-shadow:1px 1px white,0 0 12px rgba(255,214,236,.7);}
+.badge-sub{font-size:16px;color:#6aa9d6;font-weight:bold;margin-top:3px;}
+.study-stars{position:absolute;font-size:20px;color:#ffb6d9;text-shadow:0 0 8px white;animation:starTwinkle 2.4s ease-in-out infinite;}
+.study-stars.s1{top:10px;left:16px;} .study-stars.s2{top:14px;right:20px;animation-delay:.5s;}
+.study-stars.s3{bottom:12px;left:26%;animation-delay:1s;} .study-stars.s4{bottom:16px;right:24%;animation-delay:1.4s;}
+
+.reason-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:16px;}
+.reason-item{position:relative;padding:24px 20px;border-radius:28px;background:rgba(255,255,255,.82);border:2px solid #ffd6ec;
+  box-shadow:0 10px 22px rgba(255,190,220,.32);text-align:center;transition:transform .3s,box-shadow .3s,border-color .3s;}
+.reason-item:hover{transform:translateY(-8px) rotate(-1deg) scale(1.02);box-shadow:0 18px 32px rgba(255,190,220,.5);border-color:#bfe7ff;}
+.reason-icon{display:inline-block;font-size:36px;margin-bottom:10px;filter:drop-shadow(0 0 6px rgba(255,255,255,.9));animation:iconBounce 2.4s ease-in-out infinite;}
+.reason-title{font-weight:bold;color:#6aa9d6;font-size:16px;}
+.reason-text{margin-top:8px;font-size:13px;color:#4a3b55;line-height:1.8;}
+
+/* ===== PAGE REVEAL ANIMATIONS (ลูกเล่นเปิดหน้า) ===== */
+.cover, .page-card{
+  opacity:0;
+  transform:scale(.8) translateY(60px) rotate(-1.5deg);
+  transition:opacity .75s cubic-bezier(.22,.85,.32,1.15), transform .75s cubic-bezier(.22,.85,.32,1.15);
+}
+.cover.active, .page-card.active{
+  opacity:1;
+  transform:scale(1) translateY(0) rotate(0deg);
+}
+.top-bow, .side-trim, .bottom-flower{ opacity:0; transition:opacity .6s ease .35s; }
+.cover.active .top-bow, .cover.active .side-trim, .cover.active .bottom-flower{ opacity:1; }
+
+.cover .menu a,
+.page-card .page-title,
+.page-card .quote-card,
+.page-card .study-card,
+.page-card .info-grid .info-item,
+.page-card .timeline .timeline-item,
+.page-card .cert-grid .cert-box,
+.page-card .highlight-grid .highlight-box{
+  opacity:0;
+  transform:translateY(26px) scale(.96);
+  transition:opacity .55s ease, transform .55s ease;
+}
+.cover.active .menu a,
+.page-card.active .page-title,
+.page-card.active .quote-card,
+.page-card.active .study-card,
+.page-card.active .info-grid .info-item,
+.page-card.active .timeline .timeline-item,
+.page-card.active .cert-grid .cert-box,
+.page-card.active .highlight-grid .highlight-box{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.page-card.active .page-title{ transition-delay:.05s; }
+.page-card.active .quote-card, .page-card.active .study-card{ transition-delay:.15s; }
+
+.cover.active .menu a:nth-child(1){transition-delay:.20s}
+.cover.active .menu a:nth-child(2){transition-delay:.28s}
+.cover.active .menu a:nth-child(3){transition-delay:.36s}
+.cover.active .menu a:nth-child(4){transition-delay:.44s}
+.cover.active .menu a:nth-child(5){transition-delay:.52s}
+
+.page-card.active .info-grid .info-item:nth-child(1),
+.page-card.active .timeline .timeline-item:nth-child(1),
+.page-card.active .cert-grid .cert-box:nth-child(1),
+.page-card.active .highlight-grid .highlight-box:nth-child(1){transition-delay:.18s}
+.page-card.active .info-grid .info-item:nth-child(2),
+.page-card.active .timeline .timeline-item:nth-child(2),
+.page-card.active .cert-grid .cert-box:nth-child(2),
+.page-card.active .highlight-grid .highlight-box:nth-child(2){transition-delay:.26s}
+.page-card.active .info-grid .info-item:nth-child(3),
+.page-card.active .timeline .timeline-item:nth-child(3),
+.page-card.active .cert-grid .cert-box:nth-child(3),
+.page-card.active .highlight-grid .highlight-box:nth-child(3){transition-delay:.34s}
+.page-card.active .info-grid .info-item:nth-child(4),
+.page-card.active .timeline .timeline-item:nth-child(4),
+.page-card.active .cert-grid .cert-box:nth-child(4),
+.page-card.active .highlight-grid .highlight-box:nth-child(4){transition-delay:.42s}
+.page-card.active .info-grid .info-item:nth-child(5),
+.page-card.active .cert-grid .cert-box:nth-child(5){transition-delay:.50s}
+.page-card.active .info-grid .info-item:nth-child(6),
+.page-card.active .cert-grid .cert-box:nth-child(6){transition-delay:.58s}
+
+.page-card .study-hero{
+  opacity:0; transform:translateY(30px) scale(.94);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.page-card.active .study-hero{ opacity:1; transform:translateY(0) scale(1); transition-delay:.05s; }
+
+.page-card .reason-grid .reason-item{
+  opacity:0; transform:translateY(26px) scale(.96);
+  transition:opacity .55s ease, transform .55s ease;
+}
+.page-card.active .reason-grid .reason-item{ opacity:1; transform:translateY(0) scale(1); }
+.page-card.active .reason-grid .reason-item:nth-child(1){transition-delay:.32s}
+.page-card.active .reason-grid .reason-item:nth-child(2){transition-delay:.40s}
+.page-card.active .reason-grid .reason-item:nth-child(3){transition-delay:.48s}
+.page-card.active .reason-grid .reason-item:nth-child(4){transition-delay:.56s}
 
 /* ===== NAV BUTTONS ===== */
 .nav-btn{position:fixed;top:50%;transform:translateY(-50%);z-index:50;width:56px;height:56px;border-radius:50%;
@@ -366,14 +479,55 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   <section id="study" class="page-section">
   <div class="page-card">
     <h2 class="page-title">ความสนใจในการศึกษาต่อ (FUTURE STUDY)</h2>
+
+    <div class="study-hero">
+      <span class="study-stars s1">✦</span><span class="study-stars s2">✦</span>
+      <span class="study-stars s3">✦</span><span class="study-stars s4">✦</span>
+      <span class="study-ribbon">🎯 MY DREAM GOAL 🎯</span>
+      <div class="study-icons">
+        <span>🩺</span><span>💉</span><span>❤️‍🩹</span><span>🧬</span><span>⚕️</span><span>🏥</span>
+      </div>
+      <div class="study-faculty-badge">
+        <span class="badge-seal">🏅</span>
+        <div class="badge-text">
+          <div class="badge-main">คณะแพทยศาสตร์</div>
+          <div class="badge-sub">จุฬาลงกรณ์มหาวิทยาลัย</div>
+        </div>
+      </div>
+    </div>
+
     <div class="study-card" style="text-align:justify;">
-      <div class="faculty">🩺 คณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</div>
+      <div class="faculty">🩺 ทำไมถึงเลือกที่นี่?</div>
       หนูมีความสนใจที่จะศึกษาต่อในคณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
       เนื่องจากเป็นคณะที่มุ่งผลิตแพทย์ที่มีความรู้ความสามารถ
       ควบคู่ไปกับคุณธรรมและจริยธรรม เพื่อดูแลรักษาผู้ป่วยและช่วยเหลือ
       ผู้คนในสังคมให้มีสุขภาพที่ดีขึ้น หนูจึงตั้งใจพัฒนาตนเองทั้งด้าน
       วิชาการและทักษะที่จำเป็น เพื่อเตรียมความพร้อมสำหรับการสอบเข้า
       ศึกษาต่อในคณะนี้ต่อไป
+    </div>
+
+    <div class="section-label">💡 เหตุผลที่เลือกเส้นทางนี้</div>
+    <div class="reason-grid">
+      <div class="reason-item">
+        <span class="reason-icon">🎓</span>
+        <div class="reason-title">ความเป็นเลิศทางวิชาการ</div>
+        <div class="reason-text">มุ่งผลิตแพทย์ที่มีความรู้ความสามารถระดับสูง</div>
+      </div>
+      <div class="reason-item">
+        <span class="reason-icon">❤️</span>
+        <div class="reason-title">คุณธรรม จริยธรรม</div>
+        <div class="reason-text">ปลูกฝังจรรยาบรรณของความเป็นแพทย์ที่ดี</div>
+      </div>
+      <div class="reason-item">
+        <span class="reason-icon">🏥</span>
+        <div class="reason-title">ดูแลรักษาผู้ป่วย</div>
+        <div class="reason-text">ช่วยเหลือผู้คนในสังคมให้มีสุขภาพที่ดีขึ้น</div>
+      </div>
+      <div class="reason-item">
+        <span class="reason-icon">💪</span>
+        <div class="reason-title">มุ่งมั่นพัฒนาตนเอง</div>
+        <div class="reason-text">เตรียมพร้อมทั้งวิชาการและทักษะที่จำเป็น</div>
+      </div>
     </div>
   </div>
   </section>
@@ -445,6 +599,21 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   });
 
   updateButtons();
+
+  /* ===== REVEAL ANIMATION ON EACH SLIDE OPEN ===== */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const inner = entry.target.querySelector('.cover, .page-card');
+      if(!inner) return;
+      if(entry.isIntersecting && entry.intersectionRatio > 0.6){
+        inner.classList.add('active');
+      } else {
+        inner.classList.remove('active');
+      }
+    });
+  }, { root: container, threshold: [0, 0.6, 1] });
+
+  sections.forEach(sec => revealObserver.observe(sec));
 </script>
 
 </body>
