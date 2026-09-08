@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile & Education | Arisara Saetang</title>
 
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+color:#3f5a35;
+min-height:100vh;
+background:
+radial-gradient(circle at 15% 30%,rgba(255,214,236,.55),transparent 30%),
+radial-gradient(circle at 85% 20%,rgba(200,240,170,.55),transparent 32%),
+linear-gradient(180deg,#fff6e9,#ffe9f2 30%,#eafcd8 65%,#bdeeae);
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:radial-gradient(circle,white 1px,transparent 2px);
+background-size:80px 80px;
+animation:move 8s linear infinite;
+}
+
+@keyframes move{
+to{background-position:80px 80px}
+}
+
+.page{
+min-height:100vh;
+padding:35px 20px;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+z-index:2;
+}
+
+.card{
+width:min(1050px,94%);
+max-height:90vh;
+overflow-y:auto;
+padding:45px;
+background:rgba(255,255,255,.95);
+border:4px solid white;
+border-radius:45px;
+box-shadow:0 30px 80px rgba(120,150,80,.3);
+}
+
+.title{
+text-align:center;
+font-size:clamp(30px,6vw,46px);
+color:#ff8fc2;
+margin-bottom:35px;
+text-shadow:2px 2px white;
+}
+
+.back{
+display:inline-block;
+margin-bottom:25px;
+padding:10px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+color:#3f6b3a;
+background:linear-gradient(135deg,#ffe3f0,#eefbdc);
+}
+
+.info{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.item{
+padding:18px;
+border-radius:22px;
+background:rgba(255,240,248,.65);
+border:2px solid #ffe3f0;
+box-shadow:0 6px 16px rgba(255,190,220,.25);
+}
+
+.label{
+font-size:12px;
+font-weight:bold;
+color:#ff8fc2;
+}
+
+.value{
+margin-top:5px;
+font-size:16px;
+font-weight:bold;
+}
+
+.section{
+margin:35px 0 15px;
+font-size:21px;
+font-weight:bold;
+color:#5a9a45;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.box{
+padding:23px;
+border-radius:26px;
+background:rgba(255,255,255,.8);
+border:2px solid #c9eda0;
+box-shadow:0 8px 20px rgba(160,220,120,.25);
+line-height:1.8;
+}
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.timeline-item{
+padding:22px;
+display:flex;
+gap:18px;
+align-items:center;
+border-radius:28px;
+background:rgba(255,255,255,.75);
+border:2px solid #ffe3f0;
+}
+
+.timeline-icon{
+font-size:35px;
+}
+
+.level{
+font-size:14px;
+color:#ff8fc2;
+font-weight:bold;
+}
+
+.school{
+font-size:18px;
+font-weight:bold;
+margin-top:5px;
+}
+
+.grade{
+color:#ff8fc2;
+font-weight:bold;
+margin-top:5px;
+}
+
+@media(max-width:600px){
+.card{padding:35px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+<div class="card">
+
+<a class="back" href="index.html">← กลับหน้าหลัก</a>
+
+<h1 class="title">ประวัติส่วนตัว (PROFILE)</h1>
+
+<div class="info">
+
+<div class="item">
+<div class="label">ชื่อ–นามสกุล</div>
+<div class="value">นางสาวอริสรา แซ่ตั๊ง</div>
+</div>
+
+<div class="item">
+<div class="label">ชื่อเล่น</div>
+<div class="value">สายป่าน</div>
+</div>
+
+<div class="item">
+<div class="label">วันเกิด</div>
+<div class="value">14/05/2009</div>
+</div>
+
+<div class="item">
+<div class="label">โรงเรียน</div>
+<div class="value">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</div>
+</div>
+
+<div class="item">
+<div class="label">แผนการเรียน</div>
+<div class="value">วิทยาศาสตร์–คณิตศาสตร์ (Gifted)</div>
+</div>
+
+<div class="item">
+<div class="label">จังหวัด</div>
+<div class="value">ชลบุรี</div>
+</div>
+
+</div>
+
+<div class="section">🌸 ข้อมูลเพิ่มเติม</div>
+
+<div class="grid">
+
+<div class="box">
+🔬 <b>ความสนใจ</b><br>
+มีความสนใจด้านวิทยาศาสตร์ สุขภาพ และการแพทย์
+โดยเฉพาะการเรียนรู้เกี่ยวกับร่างกายมนุษย์และการดูแลสุขภาพ
+</div>
+
+<div class="box">
+🎧 <b>งานอดิเรก</b><br>
+ฟังเพลง อ่านหนังสือ ศึกษาความรู้เพิ่มเติม
+และทำกิจกรรมที่ช่วยพัฒนาทักษะและความสามารถของตนเอง
+</div>
+
+<div class="box">
+🎯 <b>เป้าหมายในอนาคต</b><br>
+มีความตั้งใจที่จะศึกษาต่อในคณะแพทยศาสตร์
+เพื่อพัฒนาความรู้และทักษะทางการแพทย์
+และนำความรู้ไปใช้ในการดูแลและช่วยเหลือผู้อื่น
+</div>
+
+</div>
+
+<div class="section">🎓 ประวัติการศึกษา (EDUCATION)</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-icon">🏫</div>
+<div>
+<div class="level">ประถมศึกษา (ป.)</div>
+<div class="school">โรงเรียนวัฒนดรุณวิทย์</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-icon">🎒</div>
+<div>
+<div class="level">มัธยมศึกษาตอนต้น (ม.ต้น)</div>
+<div class="school">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</div>
+<div class="grade">เกรดเฉลี่ย 3.99</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-icon">🎓</div>
+<div>
+<div class="level">มัธยมศึกษาตอนปลาย (ม.ปลาย)</div>
+<div class="school">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</div>
+<div class="grade">เกรดเฉลี่ย 4.00</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
