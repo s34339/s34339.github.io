@@ -190,6 +190,22 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   background:linear-gradient(135deg,#ffe3f0,#e6f3ff);border-radius:30px;box-shadow:0 6px 16px rgba(255,180,220,.4);transition:.3s;}
 .back-link:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(255,180,220,.55);}
 
+/* ===== NAV BUTTONS ===== */
+.nav-btn{position:fixed;top:50%;transform:translateY(-50%);z-index:50;width:56px;height:56px;border-radius:50%;
+  border:3px solid white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;color:#ff6fb5;
+  background:linear-gradient(135deg,#ffe3f0,#e6f3ff);box-shadow:0 8px 20px rgba(255,180,220,.5),0 0 15px rgba(255,255,255,.8);
+  transition:.25s;animation:navPulse 2.4s ease-in-out infinite;}
+.nav-btn:hover{transform:translateY(-50%) scale(1.12);box-shadow:0 12px 26px rgba(255,180,220,.65);}
+.nav-btn:active{transform:translateY(-50%) scale(.95);}
+.nav-btn.next{right:22px;}
+.nav-btn.prev{left:22px;}
+.nav-btn.hidden{opacity:0;pointer-events:none;}
+@keyframes navPulse{0%,100%{box-shadow:0 8px 20px rgba(255,180,220,.5),0 0 15px rgba(255,255,255,.8)}50%{box-shadow:0 8px 24px rgba(255,180,220,.7),0 0 22px rgba(191,231,255,.9)}}
+@media(max-width:600px){
+  .nav-btn{width:46px;height:46px;font-size:19px;}
+  .nav-btn.next{right:12px;} .nav-btn.prev{left:12px;}
+}
+
 @media(max-width:600px){
   .cover,.page-card{padding:45px 18px;}
   .photo-frame img{width:165px;height:165px;}
@@ -370,12 +386,12 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
       <div class="cert-box has-img">
         <img src="IMG_6363.jpeg" alt="เกียรติบัตร">
-        <div class="cert-caption">โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10 ระหว่างโรงเรียนมัธยมศึกษาอิจิคาว่า ประเทศญี่ปุ่น และโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย</div>
+        <div class="cert-caption">✏️ ใส่คำอธิบายเกียรติบัตรตรงนี้</div>
       </div>
 
       <div class="cert-box">
         <span class="cert-icon">📝</span>
-        ✏️ เว้นไว้ให้ใส่ข้อความ<br>อธิบายกิจกรรม
+        โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10 ระหว่างโรงเรียนมัธยมศึกษาอิจิคาว่า ประเทศญี่ปุ่น และโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย
       </div>
 
       <div class="cert-box">
@@ -390,8 +406,44 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
     </div>
   </div>
-  </section>
-
 </div>
+
+<button class="nav-btn prev hidden" id="prevBtn" onclick="goToSlide(currentIndex-1)" aria-label="ก่อนหน้า">‹</button>
+<button class="nav-btn next" id="nextBtn" onclick="goToSlide(currentIndex+1)" aria-label="ถัดไป">›</button>
+
+<script>
+  const container = document.querySelector('.container');
+  const sections = Array.from(container.children);
+  let currentIndex = 0;
+
+  function updateButtons(){
+    document.getElementById('prevBtn').classList.toggle('hidden', currentIndex <= 0);
+    document.getElementById('nextBtn').classList.toggle('hidden', currentIndex >= sections.length - 1);
+  }
+
+  function goToSlide(i){
+    if(i < 0 || i >= sections.length) return;
+    currentIndex = i;
+    sections[i].scrollIntoView({behavior:'smooth', inline:'start'});
+    updateButtons();
+  }
+
+  container.addEventListener('scroll', () => {
+    clearTimeout(container._t);
+    container._t = setTimeout(() => {
+      const scrollPos = container.scrollLeft;
+      let closest = 0, closestDist = Infinity;
+      sections.forEach((sec, i) => {
+        const dist = Math.abs(sec.offsetLeft - scrollPos);
+        if(dist < closestDist){ closestDist = dist; closest = i; }
+      });
+      currentIndex = closest;
+      updateButtons();
+    }, 120);
+  });
+
+  updateButtons();
+</script>
+
 </body>
 </html>
