@@ -180,6 +180,12 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 .cert-box.has-img{border-style:solid;background:rgba(255,255,255,.75);padding:14px;}
 .cert-box img{width:100%;max-height:170px;object-fit:cover;border-radius:18px;border:3px solid white;box-shadow:0 6px 16px rgba(160,220,120,.35);}
 .cert-box .cert-caption{font-size:13px;color:#3f5a35;line-height:1.6;}
+.cert-box.text-list{align-items:flex-start;justify-content:flex-start;text-align:left;background:rgba(255,255,255,.75);border-style:solid;}
+.cert-box.text-list .cert-icon{align-self:center;}
+.cert-box.text-list .cert-title{font-weight:bold;color:#3f6b3a;font-size:14.5px;line-height:1.6;text-align:center;width:100%;}
+.cert-list{margin:0;padding-left:20px;font-size:13px;line-height:1.85;color:#4f7a3f;text-align:left;width:100%;}
+.cert-list li{margin-bottom:6px;}
+.cert-list li::marker{color:#ff8fc2;}
 @keyframes iconBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
 .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:26px;}
 .info-item{padding:14px 20px;border-radius:20px;background:rgba(255,240,248,.6);border:2px solid #ffe3f0;box-shadow:0 6px 16px rgba(255,190,220,.25);transition:transform .3s, box-shadow .3s, opacity .5s ease, translate .5s ease;}
@@ -607,14 +613,26 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
         <div class="cert-caption"></div>
       </div>
 
-      <div class="cert-box">
+      <div class="cert-box text-list">
         <span class="cert-icon">🏅</span>
-        โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10 ระหว่างโรงเรียนมัธยมศึกษาอิจิคาว่า ประเทศญี่ปุ่น และโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย(กิจกรรมนี้ทำให้ตระหนักถึงความสำคัญของ การสื่อสาร การรับฟัง และการทำงานร่วมกับผู้อื่น ซึ่งเป็นพื้นฐานสำคัญของวิชาชีพแพทย์ เพราะการดูแลผู้ป่วยไม่ได้อาศัยเพียงความรู้ทางวิทยาศาสตร์ แต่ยังต้องเข้าใจความแตกต่างของแต่ละบุคคลและสามารถทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ)
+        <div class="cert-title">โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10<br>ระหว่างโรงเรียนมัธยมศึกษาอิจิคาว่า ประเทศญี่ปุ่น และโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย</div>
+        <ul class="cert-list">
+          <li>ตระหนักถึงความสำคัญของการสื่อสาร การรับฟัง และการทำงานร่วมกับผู้อื่น</li>
+          <li>เป็นพื้นฐานสำคัญของวิชาชีพแพทย์</li>
+          <li>การดูแลผู้ป่วยต้องอาศัยความเข้าใจความแตกต่างของแต่ละบุคคล ไม่ใช่แค่ความรู้ทางวิทยาศาสตร์</li>
+          <li>ฝึกทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</li>
+        </ul>
       </div>
 
-      <div class="cert-box">
+      <div class="cert-box text-list">
         <span class="cert-icon">🏅</span>
-        ได้เข้าร่วมการเป็นวิทยากรดำเนินงานกิจกรรมสัปดาห์คณิตศาสตร์สู่ความเป็นเลิศ(ได้รับโอกาสเป็นวิทยากรในกิจกรรมสัปดาห์คณิตศาสตร์สู่ความเป็นเลิศ ทำให้ได้พัฒนาทักษะการคิดวิเคราะห์ การแก้ปัญหาอย่างเป็นระบบ และการถ่ายทอดความรู้ให้ผู้อื่นเข้าใจ ซึ่งสามารถนำไปประยุกต์ใช้กับการเรียนแพทยศาสตร์ที่ต้องอาศัยการคิดอย่างมีเหตุผล การวิเคราะห์ข้อมูล และการสื่อสารข้อมูลที่ซับซ้อนให้ผู้ป่วยเข้าใจได้อย่างถูกต้อง)
+        <div class="cert-title">วิทยากรดำเนินงานกิจกรรมสัปดาห์คณิตศาสตร์สู่ความเป็นเลิศ</div>
+        <ul class="cert-list">
+          <li>พัฒนาทักษะการคิดวิเคราะห์และแก้ปัญหาอย่างเป็นระบบ</li>
+          <li>ฝึกการถ่ายทอดความรู้ให้ผู้อื่นเข้าใจ</li>
+          <li>ประยุกต์ใช้กับการเรียนแพทยศาสตร์ที่ต้องใช้เหตุผลและวิเคราะห์ข้อมูล</li>
+          <li>ฝึกสื่อสารข้อมูลที่ซับซ้อนให้ผู้ป่วยเข้าใจได้อย่างถูกต้อง</li>
+        </ul>
       </div>
 
       <div class="cert-box has-img">
