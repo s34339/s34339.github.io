@@ -353,6 +353,63 @@ strong {
     0% { transform: translate(-50%,-50%) scale(.4) rotate(0deg); opacity: 1; }
     100% { transform: translate(-50%,-50%) scale(1.3) rotate(120deg) translateY(-22px); opacity: 0; }
 }
+
+/* =========================
+   🌸💚 เอฟเฟกต์เปลี่ยนหน้า
+========================= */
+.pt-circle {
+    position: fixed;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff9ecb 0%, #ff6fb0 45%, #7ed88a 100%);
+    width: 40px;
+    height: 40px;
+    transform: scale(0);
+    z-index: 998;
+}
+.pt-circle.grow {
+    animation: ptGrow .75s cubic-bezier(.6,0,.4,1) forwards;
+}
+@keyframes ptGrow {
+    to { transform: scale(60); }
+}
+
+.pt-emoji {
+    position: fixed;
+    z-index: 1000;
+    font-size: 34px;
+    opacity: 0;
+    pointer-events: none;
+}
+.pt-emoji.show {
+    animation: ptEmojiPop .75s ease-out forwards;
+}
+@keyframes ptEmojiPop {
+    0% { opacity: 0; transform: translateY(0) scale(.4) rotate(0deg); }
+    30% { opacity: 1; transform: translateY(-20px) scale(1.1) rotate(15deg); }
+    100% { opacity: 0; transform: translateY(-140px) scale(1) rotate(-20deg); }
+}
+
+.pt-label {
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(.7);
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,.25);
+    opacity: 0;
+    pointer-events: none;
+}
+.pt-label.show {
+    animation: ptLabelShow .75s ease-out forwards;
+}
+@keyframes ptLabelShow {
+    0% { opacity: 0; transform: translate(-50%,-50%) scale(.6); }
+    45% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+}
 </style>
 </head>
 
@@ -417,7 +474,7 @@ strong {
             ที่โฮสต์บน GitHub Pages!
         </p>
 
-        <a href="portfolio.html" class="btn">
+        <a href="portfolio.html" class="btn" id="portfolio-link">
             🌸 แฟ้มสะสมผลงาน
         </a>
 
@@ -439,6 +496,43 @@ strong {
         s.style.color = Math.random() > 0.5 ? '#7db85f' : '#ff9ecb';
         document.body.appendChild(s);
         setTimeout(() => s.remove(), 820);
+    });
+
+    /* 🌸💚 เอฟเฟกต์เปลี่ยนหน้าตอนกดแฟ้มสะสมผลงาน */
+    const portfolioLink = document.getElementById('portfolio-link');
+    portfolioLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetUrl = portfolioLink.getAttribute('href');
+        const rect = portfolioLink.getBoundingClientRect();
+        const originX = rect.left + rect.width / 2;
+        const originY = rect.top + rect.height / 2;
+
+        const circle = document.createElement('div');
+        circle.className = 'pt-circle grow';
+        circle.style.left = (originX - 20) + 'px';
+        circle.style.top = (originY - 20) + 'px';
+        document.body.appendChild(circle);
+
+        const emojis = ['🌸', '🍃', '💚', '🌷', '🩷'];
+        emojis.forEach((ch, i) => {
+            const em = document.createElement('span');
+            em.className = 'pt-emoji show';
+            em.textContent = ch;
+            em.style.left = (originX - 17 + (i - 2) * 26) + 'px';
+            em.style.top = (originY - 17) + 'px';
+            em.style.animationDelay = (i * 0.05) + 's';
+            document.body.appendChild(em);
+            setTimeout(() => em.remove(), 900);
+        });
+
+        const label = document.createElement('div');
+        label.className = 'pt-label show';
+        label.textContent = 'กำลังเปิดแฟ้มสะสมผลงาน...';
+        document.body.appendChild(label);
+
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 700);
     });
 </script>
 
