@@ -716,9 +716,19 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     });
   });
 
-  /* ===== เลื่อนด้วยล้อเมาส์/แทร็คแพด ===== */
+  /* ===== เลื่อนด้วยล้อเมาส์/แทร็คแพด (ไม่รบกวนการเลื่อนดูเนื้อหาในหน้า) ===== */
+  function canScrollInner(target, deltaY){
+    const scrollable = target.closest('.page-card, .cover');
+    if(!scrollable || scrollable.scrollHeight <= scrollable.clientHeight + 1) return false;
+    if(deltaY > 0){
+      return scrollable.scrollTop + scrollable.clientHeight < scrollable.scrollHeight - 1;
+    } else {
+      return scrollable.scrollTop > 0;
+    }
+  }
   let lastWheelTime = 0;
   container.addEventListener('wheel', (e) => {
+    if(canScrollInner(e.target, e.deltaY)) return; // ปล่อยให้เลื่อนเนื้อหาในหน้าตามปกติ
     e.preventDefault();
     const now = Date.now();
     if(now - lastWheelTime < 700) return;
@@ -728,17 +738,28 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     if(delta > 0) jumpTo(currentIndex + 1); else jumpTo(currentIndex - 1);
   }, { passive:false });
 
-  /* ===== ปัดนิ้วบนมือถือ ===== */
-  let touchStartX = 0, touchStartY = 0;
+  /* ===== ปัดนิ้วบนมือถือ (ปัดซ้าย-ขวาเปลี่ยนหน้า / ปัดขึ้น-ลงเลื่อนดูเนื้อหาได้ตามปกติ) ===== */
+  let touchStartX = 0, touchStartY = 0, touchIsHorizontal = null;
   container.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    touchIsHorizontal = null;
   }, { passive:true });
-  container.addEventListener('touchmove', (e) => { e.preventDefault(); }, { passive:false });
+  container.addEventListener('touchmove', (e) => {
+    if(touchIsHorizontal === null){
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+      if(Math.abs(dx) > 6 || Math.abs(dy) > 6){
+        touchIsHorizontal = Math.abs(dx) > Math.abs(dy);
+      }
+    }
+    if(touchIsHorizontal){ e.preventDefault(); }
+    // ถ้าเป็นการปัดแนวตั้ง ปล่อยให้เบราว์เซอร์เลื่อนเนื้อหาในหน้าตามปกติ
+  }, { passive:false });
   container.addEventListener('touchend', (e) => {
+    if(!touchIsHorizontal) return;
     const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)){
+    if(Math.abs(dx) > 50){
       if(dx < 0) jumpTo(currentIndex + 1); else jumpTo(currentIndex - 1);
     }
   });
