@@ -18,7 +18,6 @@ body {
     radial-gradient(circle at 80% 75%, rgba(190,235,160,.45), transparent 32%),
     linear-gradient(180deg, #fff6e9 0%, #ffe9f2 22%, #eafcd8 55%, #d6f5c4 80%, #bdeeae 100%);
 }
-/* ดวงอาทิตย์อ่อนโยนมุมบน + หญ้าโบกริมล่างจอ ให้ดูเป็นสวนดอกไม้ */
 body .garden-sun{position:fixed;width:220px;height:220px;border-radius:50%;top:-80px;right:-60px;z-index:0;pointer-events:none;
   background:radial-gradient(circle, #fff6c8 0%, #ffe98a 55%, transparent 75%);box-shadow:0 0 60px rgba(255,222,120,.55);
   animation:sunPulse 6s ease-in-out infinite;}
@@ -205,7 +204,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   background:linear-gradient(135deg,#ffe3f0,#eefbdc);border-radius:30px;box-shadow:0 6px 16px rgba(255,180,220,.4);transition:.3s;}
 .back-link:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(255,180,220,.55);}
 
-/* ===== FUTURE STUDY HERO (โอเว่อขึ้น) ===== */
+/* ===== FUTURE STUDY HERO ===== */
 .study-hero{position:relative;text-align:center;margin-bottom:30px;padding:30px 20px 26px;border-radius:36px;
   background:linear-gradient(135deg,#ffe3f0,#eefbdc,#fff0f8,#eefbdc);background-size:300% 300%;animation:menuShine 6s ease infinite;
   border:3px dashed #ffb6d9;overflow:hidden;box-shadow:0 12px 30px rgba(255,190,220,.35);}
@@ -236,7 +235,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 .reason-title{font-weight:bold;color:#5a9a45;font-size:16px;}
 .reason-text{margin-top:8px;font-size:13px;color:#3f5a35;line-height:1.8;}
 
-/* ===== PAGE REVEAL ANIMATIONS (ลูกเล่นเปิดหน้า) ===== */
+/* ===== PAGE REVEAL ANIMATIONS ===== */
 .cover, .page-card{
   opacity:0;
   transform:scale(.8) translateY(60px) rotate(-1.5deg);
@@ -340,7 +339,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   .menu{grid-template-columns:1fr;}
 }
 
-/* ===== BLOOMING FLOWER TRANSITION (เอฟเฟคดอกไม้บานตอนเลื่อนหน้า) ===== */
+/* ===== BLOOMING FLOWER TRANSITION ===== */
 .bloom-overlay{position:fixed;inset:0;z-index:400;pointer-events:none;opacity:0;}
 .bloom-flower{position:absolute;top:50%;left:50%;width:0;height:0;}
 .bloom-petal{position:absolute;top:0;left:0;width:11px;height:34px;
@@ -369,7 +368,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   100%{transform:translate(-50%,-100%) rotate(var(--ang)) scaleY(0);opacity:0;}
 }
 
-/* ===== CONFETTI BURST เวลาเปลี่ยนหน้า ===== */
+/* ===== CONFETTI BURST ===== */
 .confetti-piece{position:fixed;top:50%;left:50%;z-index:250;pointer-events:none;line-height:1;
   animation:confettiBurst .45s ease-out forwards;filter:drop-shadow(0 0 4px rgba(255,255,255,.9));}
 @keyframes confettiBurst{
@@ -377,7 +376,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1.15) rotate(var(--rot));opacity:0;}
 }
 
-/* ===== GLOW เว่อๆ ตอนหน้าเปิด ===== */
+/* ===== GLOW ===== */
 @keyframes cardGlowPulse{
   0%,100%{box-shadow:0 30px 80px rgba(120,150,80,.3),0 0 40px rgba(255,255,255,.65),0 0 55px rgba(255,182,217,.5);}
   50%{box-shadow:0 30px 90px rgba(120,150,80,.35),0 0 65px rgba(255,255,255,.95),0 0 95px rgba(200,235,165,.75);}
@@ -427,27 +426,27 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
 <div class="shimmer-overlay"></div>
 
-<span class="emoji-fall sway-b" style="left:67%;font-size:28px;animation-delay:.8s;animation-duration:8.3s">💗</span>
-<span class="emoji-fall sway-c" style="left:19%;font-size:24px;animation-delay:2s;animation-duration:7s">🍓</span>
-<span class="emoji-fall" style="left:15%;font-size:24px;animation-delay:3s;animation-duration:11s">🍃</span>
-<span class="emoji-fall sway-c" style="left:75%;font-size:32px;animation-delay:1s;animation-duration:7.2s">🍃</span>
+<span class="emoji-fall sway-b" style="left:67%;font-size:28px;animation-delay:.8s;animation-duration:8.3s">🌷</span>
+<span class="emoji-fall sway-c" style="left:19%;font-size:24px;animation-delay:2s;animation-duration:7s">🍀</span>
+<span class="emoji-fall" style="left:15%;font-size:24px;animation-delay:3s;animation-duration:11s">🌼</span>
+<span class="emoji-fall sway-c" style="left:75%;font-size:32px;animation-delay:1s;animation-duration:7.2s">🌸</span>
 <span class="emoji-fall sway-c" style="left:49%;font-size:20px;animation-delay:2.5s;animation-duration:12.6s">🦋</span>
 <span class="emoji-fall" style="left:72%;font-size:20px;animation-delay:1s;animation-duration:12.5s">🌸</span>
-<span class="emoji-fall" style="left:54%;font-size:28px;animation-delay:3.2s;animation-duration:7.9s">🍓</span>
+<span class="emoji-fall" style="left:54%;font-size:28px;animation-delay:3.2s;animation-duration:7.9s">🍀</span>
 <span class="emoji-fall sway-b" style="left:84%;font-size:24px;animation-delay:.6s;animation-duration:8.2s">🌸</span>
 <span class="emoji-fall" style="left:55%;font-size:32px;animation-delay:1.6s;animation-duration:12.5s">✨</span>
-<span class="emoji-fall sway-b" style="left:36%;font-size:32px;animation-delay:4s;animation-duration:8.9s">🍃</span>
+<span class="emoji-fall sway-b" style="left:36%;font-size:32px;animation-delay:4s;animation-duration:8.9s">🌼</span>
 <span class="emoji-fall" style="left:11%;font-size:20px;animation-delay:2.4s;animation-duration:8s">🌷</span>
 <span class="emoji-fall sway-b" style="left:89%;font-size:24px;animation-delay:2.7s;animation-duration:10.5s">⭐</span>
 
-<span class="floaty-sticker" style="left:89%;top:40%;font-size:26px;animation-delay:.3s">🌻</span>
-<span class="floaty-sticker" style="left:56%;top:86%;font-size:32px;animation-delay:.2s">🌻</span>
+<span class="floaty-sticker" style="left:89%;top:40%;font-size:26px;animation-delay:.3s">🎀</span>
+<span class="floaty-sticker" style="left:56%;top:86%;font-size:32px;animation-delay:.2s">🎀</span>
 <span class="floaty-sticker" style="left:24%;top:54%;font-size:26px;animation-delay:3.3s">🌸</span>
 <span class="floaty-sticker" style="left:6%;top:81%;font-size:38px;animation-delay:1.7s">🦋</span>
 <span class="floaty-sticker" style="left:65%;top:43%;font-size:38px;animation-delay:1.9s">🌷</span>
 <span class="floaty-sticker" style="left:73%;top:16%;font-size:32px;animation-delay:1.6s">🦋</span>
 <span class="floaty-sticker" style="left:42%;top:12%;font-size:28px;animation-delay:.9s">🌼</span>
-<span class="floaty-sticker" style="left:18%;top:25%;font-size:24px;animation-delay:2.1s">🌈</span>
+<span class="floaty-sticker" style="left:18%;top:25%;font-size:24px;animation-delay:2.1s">🌟</span>
 
 <span class="star-sparkle" style="left:73%;top:54%;font-size:16px;animation-delay:2.3s">✦</span>
 <span class="star-sparkle" style="left:58%;top:49%;font-size:24px;animation-delay:.3s">✦</span>
@@ -461,24 +460,24 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   <section class="slide" id="cover-slide">
   <div class="cover">
     <span class="top-bow">🎀</span>
-    <div class="side-trim left"><span>💗</span><span>⭐</span><span>🌸</span><span>💗</span></div>
-    <div class="side-trim right"><span>🌸</span><span>💗</span><span>⭐</span><span>🌸</span></div>
+    <div class="side-trim left"><span>🌷</span><span>⭐</span><span>🌸</span><span>🌷</span></div>
+    <div class="side-trim right"><span>🌸</span><span>🌷</span><span>⭐</span><span>🌸</span></div>
     <span class="bottom-flower left">🌷</span>
     <span class="bottom-flower right">🌷</span>
 
     <div class="photo-frame"><img src="Parn.jpg" alt="รูปโปรไฟล์"></div>
 
     <h1>PORTFOLIO</h1>
-    <div class="name">อริสรา แซ่ตั๊ง</div>
-    <span class="kawaii-badge">🍓 SWEET &amp; SMART 🍓</span>
-    <div class="tagline">💎 MY CRYSTAL PORTFOLIO 💎<br>🌊 Math &amp; Science Gifted 🌊</div>
+    <div class="name">อริสรา แซ่ตั้ง</div>
+    <span class="kawaii-badge">🌟 SWEET &amp; SMART 🌟</span>
+    <div class="tagline">💎 MY CRYSTAL PORTFOLIO 💎<br>🌱 Math &amp; Science Gifted 🌱</div>
 
     <nav class="menu">
       <a href="#preface"><span class="menu-icon">💌</span><span class="menu-title">คำนำ</span><span class="menu-small">PREFACE</span></a>
       <a href="#profile"><span class="menu-icon">👩‍🎓</span><span class="menu-title">ประวัติส่วนตัว</span><span class="menu-small">PROFILE</span></a>
       <a href="#education"><span class="menu-icon">🎓</span><span class="menu-title">ประวัติการศึกษา</span><span class="menu-small">EDUCATION</span></a>
       <a href="#study"><span class="menu-icon">🔬</span><span class="menu-title">ความสนใจในการศึกษาต่อ</span><span class="menu-small">FUTURE STUDY</span></a>
-      <a href="#activities"><span class="menu-icon">🏆</span><span class="menu-title">กิจกรรมที่เข้าร่วม</span><span class="menu-small">ACTIVITIES</span></a>
+      <a href="#activities"><span class="menu-icon">🏆</span><span class="menu-title">กิจกรรมที่เคยร่วม</span><span class="menu-small">ACTIVITIES</span></a>
     </nav>
   </div>
   </section>
@@ -490,8 +489,8 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       <span class="quote-mark">❝</span>
       แฟ้มสะสมผลงาน (Portfolio) เล่มนี้จัดทำขึ้นเพื่อรวบรวมประวัติส่วนตัว
       ผลการศึกษา กิจกรรม ผลงาน และประสบการณ์ต่าง ๆ ที่สะท้อนถึงความสนใจ
-      ความตั้งใจ และความมุ่งมั่นของข้าพเจ้าในการศึกษาต่อใน คณะแพทยศาสตร์
-      ข้าพเจ้ามีความสนใจในด้านวิทยาศาสตร์และการแพทย์ รวมถึงมีความตั้งใจ
+      ความตั้งใจ และความมุ่งมั่นของข้าพเจ้าเพื่อใช้ในการศึกษาต่อในคณะแพทยศาสตร์
+      ข้าพเจ้ามีความสนใจด้านวิทยาศาสตร์และการแพทย์ รวมถึงมีความตั้งใจ
       ที่จะนำความรู้และความสามารถที่ได้รับไปใช้ในการดูแลและช่วยเหลือผู้อื่น
       <br><br>
       ตลอดระยะเวลาที่ผ่านมา ข้าพเจ้าได้พยายามเรียนรู้และพัฒนาตนเองทั้งด้าน
@@ -504,8 +503,8 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       และความตั้งใจจริงในการก้าวเข้าสู่เส้นทางวิชาชีพแพทย์ และเป็นส่วนหนึ่ง
       ที่แสดงให้เห็นถึงความพร้อมในการเรียนรู้และพัฒนาตนเองต่อไปในอนาคต
       <br><br>
-      ข้าพเจ้าขอขอบพระคุณคณะครู ผู้ปกครอง และทุกท่านที่ให้คำแนะนำ
-      สนับสนุน และเป็นกำลังใจตลอดเส้นทางการเรียนรู้ของข้าพเจ้า
+      ข้าพเจ้าขอขอบพระคุณครู ผู้ปกครอง และทุกท่านที่ให้การสนับสนุน
+      ส่งเสริม และเป็นกำลังใจตลอดเส้นทางการเรียนรู้ของข้าพเจ้า
     </div>
   </div>
   </section>
@@ -514,20 +513,20 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   <div class="page-card">
     <h2 class="page-title">ประวัติส่วนตัว (PROFILE)</h2>
     <div class="info-grid">
-      <div class="info-item"><div class="info-label">ชื่อ–นามสกุล</div><div class="info-value">นางสาวอริสรา แซ่ตั๊ง</div></div>
-      <div class="info-item"><div class="info-label">ชื่อเล่น</div><div class="info-value">สายป่าน</div></div>
+      <div class="info-item"><div class="info-label">ชื่อ–นามสกุล</div><div class="info-value">นางสาวอริสรา แซ่ตั้ง</div></div>
+      <div class="info-item"><div class="info-label">ชื่อเล่น</div><div class="info-value">สายฝน</div></div>
       <div class="info-item"><div class="info-label">วันเกิด</div><div class="info-value">14/05/2009</div></div>
-      <div class="info-item"><div class="info-label">โรงเรียน</div><div class="info-value">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</div></div>
+      <div class="info-item"><div class="info-label">โรงเรียน</div><div class="info-value">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</div></div>
       <div class="info-item"><div class="info-label">แผนการเรียน</div><div class="info-value">วิทยาศาสตร์–คณิตศาสตร์ (Gifted)</div></div>
       <div class="info-item"><div class="info-label">จังหวัด</div><div class="info-value">ชลบุรี</div></div>
     </div>
     <div class="highlight-grid">
       <div class="highlight-box"><div class="h-icon">🔬</div><div class="h-title">ความสนใจ</div>
         <div class="h-text">มีความสนใจด้านวิทยาศาสตร์ สุขภาพ และการแพทย์ โดยเฉพาะการเรียนรู้เกี่ยวกับร่างกายมนุษย์และการดูแลสุขภาพ</div></div>
-      <div class="highlight-box"><div class="h-icon">🎧</div><div class="h-title">งานอดิเรก</div>
-        <div class="h-text">ฟังเพลง อ่านหนังสือ ศึกษาความรู้เพิ่มเติม และทำกิจกรรมที่ช่วยพัฒนาทักษะและความสามารถของตนเอง</div></div>
+      <div class="highlight-box"><div class="h-icon">📖</div><div class="h-title">การอ่านิเรน</div>
+        <div class="h-text">ชอบเวลาอ่านหนังสือ ศึกษาความรู้เพิ่มเติม และทำกิจกรรมที่เกี่ยวกับการพัฒนาทักษะและความสามารถของตนเอง</div></div>
       <div class="highlight-box"><div class="h-icon">🎯</div><div class="h-title">เป้าหมายในอนาคต</div>
-        <div class="h-text">มีความตั้งใจที่จะศึกษาต่อใน คณะแพทยศาสตร์ เพื่อพัฒนาความรู้และทักษะทางการแพทย์ และนำความรู้ที่ได้รับไปใช้ในการดูแลและช่วยเหลือผู้อื่นในอนาคต</div></div>
+        <div class="h-text">มีความตั้งใจที่จะศึกษาต่อในคณะแพทยศาสตร์ เพื่อพัฒนาความรู้และทักษะทางการแพทย์ และนำความรู้ที่ได้รับไปใช้ในการดูแลและช่วยเหลือผู้อื่นในอนาคต</div></div>
     </div>
   </div>
   </section>
@@ -538,10 +537,10 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     <div class="timeline">
       <div class="timeline-item"><div class="tl-icon">🏫</div>
         <div class="tl-content"><div class="level">ประถมศึกษา (ป.)</div><div class="school">โรงเรียนวัฒนดรุณวิทย์</div></div></div>
-      <div class="timeline-item"><div class="tl-icon">🎒</div>
-        <div class="tl-content"><div class="level">มัธยมศึกษาตอนต้น (ม.ต้น)</div><div class="school">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</div><div class="tl-grade">เกรดเฉลี่ย 3.99</div></div></div>
+      <div class="timeline-item"><div class="tl-icon">📘</div>
+        <div class="tl-content"><div class="level">มัธยมศึกษาตอนต้น (ม.ต้น)</div><div class="school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</div><div class="tl-grade">เกรดเฉลี่ย 3.99</div></div></div>
       <div class="timeline-item"><div class="tl-icon">🎓</div>
-        <div class="tl-content"><div class="level">มัธยมศึกษาตอนปลาย (ม.ปลาย)</div><div class="school">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</div><div class="tl-grade">เกรดเฉลี่ย 4.00</div></div></div>
+        <div class="tl-content"><div class="level">มัธยมศึกษาตอนปลาย (ม.ปลาย)</div><div class="school">โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</div><div class="tl-grade">เกรดเฉลี่ย 4.00</div></div></div>
     </div>
   </div>
   </section>
@@ -555,7 +554,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       <span class="study-stars s3">✦</span><span class="study-stars s4">✦</span>
       <span class="study-ribbon">🎯 MY DREAM GOAL 🎯</span>
       <div class="study-icons">
-        <span>🩺</span><span>💉</span><span>❤️‍🩹</span><span>🧬</span><span>⚕️</span><span>🏥</span>
+        <span>🩺</span><span>💊</span><span>❤️‍🩹</span><span>🧬</span><span>⚕️</span><span>🏥</span>
       </div>
       <div class="study-faculty-badge">
         <span class="badge-seal">🏅</span>
@@ -569,8 +568,8 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     <div class="study-card" style="text-align:justify;">
       <div class="faculty">🩺 ทำไมถึงเลือกที่นี่?</div>
       หนูมีความสนใจที่จะศึกษาต่อในคณะแพทยศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
-      เนื่องจากเป็นคณะที่มุ่งผลิตแพทย์ที่มีความรู้ความสามารถ
-      ควบคู่ไปกับคุณธรรมและจริยธรรม เพื่อดูแลรักษาผู้ป่วยและช่วยเหลือ
+      เพื่อก้าวเข้าสู่วิชาชีพแพทย์ที่มุ่งเน้นการนำความรู้ความสามารถ
+      ควบคู่กับคุณธรรมและจริยธรรม เพื่อดูแลรักษาผู้ป่วยและช่วยเหลือ
       ผู้คนในสังคมให้มีสุขภาพที่ดีขึ้น หนูจึงตั้งใจพัฒนาตนเองทั้งด้าน
       วิชาการและทักษะที่จำเป็น เพื่อเตรียมความพร้อมสำหรับการสอบเข้า
       ศึกษาต่อในคณะนี้ต่อไป
@@ -586,7 +585,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       <div class="reason-item">
         <span class="reason-icon">❤️</span>
         <div class="reason-title">คุณธรรม จริยธรรม</div>
-        <div class="reason-text">ปลูกฝังจรรยาบรรณของความเป็นแพทย์ที่ดี</div>
+        <div class="reason-text">ปลูกฝังอุดมการณ์ของความเป็นแพทย์ที่ดี</div>
       </div>
       <div class="reason-item">
         <span class="reason-icon">🏥</span>
@@ -596,7 +595,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       <div class="reason-item">
         <span class="reason-icon">💪</span>
         <div class="reason-title">มุ่งมั่นพัฒนาตนเอง</div>
-        <div class="reason-text">เตรียมพร้อมทั้งวิชาการและทักษะที่จำเป็น</div>
+        <div class="reason-text">เตรียมความพร้อมทั้งวิชาการและทักษะที่จำเป็น</div>
       </div>
     </div>
   </div>
@@ -604,8 +603,8 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
   <section id="activities" class="page-section">
   <div class="page-card">
-    <h2 class="page-title">กิจกรรมที่เข้าร่วม (ACTIVITIES)</h2>
-    <div class="section-label">🏆 เกียรติบัตรและกิจกรรมที่เข้าร่วม</div>
+    <h2 class="page-title">กิจกรรมที่เคยร่วม (ACTIVITIES)</h2>
+    <div class="section-label">🏆 เกียรติบัตรและกิจกรรมที่เคยร่วม</div>
     <div class="cert-grid">
 
       <div class="cert-box has-img">
@@ -615,23 +614,23 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
       <div class="cert-box text-list">
         <span class="cert-icon">🏅</span>
-        <div class="cert-title">โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10<br>ระหว่างโรงเรียนมัธยมศึกษาอิจิคาว่า ประเทศญี่ปุ่น และโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย</div>
+        <div class="cert-title">แข่งขันแก้เกลียวทางวิชาการครั้งที่ 10<br>ระหว่างโรงเรียนมัธยมศึกษาอิสริยาว่า ประเทศไทยกุ้ง และโรงเรียนวิทยาศาสตร์กุฬา ภรราชวิทยาลัย</div>
         <ul class="cert-list">
           <li>ตระหนักถึงความสำคัญของการสื่อสาร การรับฟัง และการทำงานร่วมกับผู้อื่น</li>
-          <li>เป็นพื้นฐานสำคัญของวิชาชีพแพทย์</li>
-          <li>การดูแลผู้ป่วยต้องอาศัยความเข้าใจความแตกต่างของแต่ละบุคคล ไม่ใช่แค่ความรู้ทางวิทยาศาสตร์</li>
+          <li>เพิ่มเนื้อหาสำคัญของวิชาชีวเคมีทางการแพทย์</li>
+          <li>การดูแลผู้ที่เกี่ยวข้องต่ออาศัยความเข้าใจในความแตกต่างของแต่ละบุคคล ไม่แค่แค่ในความรู้ทางวิทยาศาสตร์</li>
           <li>ฝึกทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</li>
         </ul>
       </div>
 
       <div class="cert-box text-list">
         <span class="cert-icon">🏅</span>
-        <div class="cert-title">วิทยากรดำเนินงานกิจกรรมสัปดาห์คณิตศาสตร์สู่ความเป็นเลิศ</div>
+        <div class="cert-title">วิทยากรดำเนินกิจกรรมสัปดาห์คณิตศาสตร์สู่ความเป็นเลิศ</div>
         <ul class="cert-list">
           <li>พัฒนาทักษะการคิดวิเคราะห์และแก้ปัญหาอย่างเป็นระบบ</li>
           <li>ฝึกการถ่ายทอดความรู้ให้ผู้อื่นเข้าใจ</li>
-          <li>ประยุกต์ใช้กับการเรียนแพทยศาสตร์ที่ต้องใช้เหตุผลและวิเคราะห์ข้อมูล</li>
-          <li>ฝึกสื่อสารข้อมูลที่ซับซ้อนให้ผู้ป่วยเข้าใจได้อย่างถูกต้อง</li>
+          <li>ประยุกต์ใช้ในการเรียนวิชาศาสตร์ที่ต้องใช้เหตุผลและวิเคราะห์ข้อมูล</li>
+          <li>ฝึกสื่อสารข้อมูลที่ซับซ้อนให้ผู้เกี่ยวข้องได้อย่างถูกต้อง</li>
         </ul>
       </div>
 
@@ -664,7 +663,17 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     document.getElementById('nextBtn').classList.toggle('hidden', currentIndex >= sections.length - 1);
   }
 
-  /* ===== สร้างกลีบดอกไม้สำหรับเอฟเฟคบานตอนเปลี่ยนหน้า ===== */
+  /* ===== ชื่อแท็บ (document.title) ของแต่ละหน้า ===== */
+  const sectionTitles = {
+    'cover-slide': 'Portfolio | Arisara Saetang',
+    'preface': 'คำนำ | Portfolio',
+    'profile': 'ประวัติส่วนตัว | Portfolio',
+    'education': 'ประวัติการศึกษา | Portfolio',
+    'study': 'ความสนใจในการศึกษาต่อ | Portfolio',
+    'activities': 'กิจกรรม | Portfolio'
+  };
+
+  /* ===== สร้างกลีบดอกไม้สำหรับเอฟเฟกต์ตอนเปลี่ยนหน้า ===== */
   const PETAL_COUNT = 12;
   const bloomFlower = document.getElementById('bloomFlower');
   for(let i=0;i<PETAL_COUNT;i++){
@@ -695,17 +704,17 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     }, 180);
   }
 
-  /* ===== คอนเฟตตี้กระจายฟรุ้งฟริ้งตอนหน้าใหม่เปิด ===== */
+  /* ===== คอนเฟตติกระจายกรุ๊บกริ๊บตอนหน้าใหม่เกิด ===== */
   const sectionEmojis = {
-    'cover-slide': ['🎀','💗','⭐','🌸','✨'],
-    'preface': ['💌','🌸','✨','💗'],
-    'profile': ['👩‍🎓','💗','⭐','🌷'],
-    'education': ['🎓','📚','✨','⭐'],
-    'study': ['🩺','💉','🧬','❤️‍🩹','⚕️'],
-    'activities': ['🏆','🎉','🥇','✨','🎊']
+    'cover-slide': ['🎀','🌷','⭐','🌸','✨'],
+    'preface': ['💌','🌸','✨','🌷'],
+    'profile': ['👩‍🎓','🌷','⭐','🌷'],
+    'education': ['🎓','📘','✨','⭐'],
+    'study': ['🩺','💊','🧬','❤️‍🩹','⚕️'],
+    'activities': ['🏆','🏅','🥇','✨','🎉']
   };
   function burstConfetti(sectionId){
-    const emojis = sectionEmojis[sectionId] || ['✨','💗','⭐'];
+    const emojis = sectionEmojis[sectionId] || ['✨','🌷','⭐'];
     const count = 6;
     for(let i=0;i<count;i++){
       const piece = document.createElement('span');
@@ -731,12 +740,13 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       sections[i].scrollIntoView({behavior:'auto', inline:'start'});
       updateButtons();
       burstConfetti(sections[i].id);
+      document.title = sectionTitles[sections[i].id] || 'Portfolio | Arisara Saetang';
     });
   }
-  /* คงชื่อเดิมไว้เผื่อมีการเรียกใช้ */
+  /* ชื่อฟังก์ชันเดิมไว้เผื่อมีการเรียกใช้ */
   function goToSlide(i){ jumpTo(i); }
 
-  /* ===== เมนูบนหน้าปก ให้เด้งผ่านเอฟเฟคดอกไม้บานด้วย ===== */
+  /* ===== เมนูหน้าปก ให้เด้งข้ามเอฟเฟกต์ดอกไม้พร้อมด้วย ===== */
   document.querySelectorAll('.menu a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
@@ -746,7 +756,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     });
   });
 
-  /* ===== เลื่อนด้วยล้อเมาส์/แทร็คแพด (ไม่รบกวนการเลื่อนดูเนื้อหาในหน้า) ===== */
+  /* ===== เลื่อนด้วยล้อเมาส์/แทร็คแพด (ไม่รบกวนการเลื่อนดูเนื้อหาข้างใน) ===== */
   function canScrollInner(target, deltaY){
     const scrollable = target.closest('.page-card, .cover');
     if(!scrollable || scrollable.scrollHeight <= scrollable.clientHeight + 1) return false;
@@ -758,7 +768,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   }
   let lastWheelTime = 0;
   container.addEventListener('wheel', (e) => {
-    if(canScrollInner(e.target, e.deltaY)) return; // ปล่อยให้เลื่อนเนื้อหาในหน้าตามปกติ
+    if(canScrollInner(e.target, e.deltaY)) return;
     e.preventDefault();
     const now = Date.now();
     if(now - lastWheelTime < 700) return;
@@ -768,7 +778,7 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
     if(delta > 0) jumpTo(currentIndex + 1); else jumpTo(currentIndex - 1);
   }, { passive:false });
 
-  /* ===== ปัดนิ้วบนมือถือ (ปัดซ้าย-ขวาเปลี่ยนหน้า / ปัดขึ้น-ลงเลื่อนดูเนื้อหาได้ตามปกติ) ===== */
+  /* ===== ปัดนิ้วบนมือถือ ===== */
   let touchStartX = 0, touchStartY = 0, touchIsHorizontal = null;
   container.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
@@ -784,7 +794,6 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
       }
     }
     if(touchIsHorizontal){ e.preventDefault(); }
-    // ถ้าเป็นการปัดแนวตั้ง ปล่อยให้เบราว์เซอร์เลื่อนเนื้อหาในหน้าตามปกติ
   }, { passive:false });
   container.addEventListener('touchend', (e) => {
     if(!touchIsHorizontal) return;
@@ -817,8 +826,8 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
   sections.forEach(sec => revealObserver.observe(sec));
 
-  /* ===== SPARKLE ตามเมาส์ เอฟเฟคเว่อๆ เพิ่มความฟรุ้งฟริ้งทุกหน้า ===== */
-  const sparkleChars = ['✦','✨','💗','⭐'];
+  /* ===== SPARKLE ตามเมาส์ เอฟเฟกต์เวออร์ เพิ่มความกรุ๊บกริ๊บทุกหน้า ===== */
+  const sparkleChars = ['✦','✨','🌷','⭐'];
   let lastSparkleTime = 0;
   document.addEventListener('mousemove', (e) => {
     const now = Date.now();
