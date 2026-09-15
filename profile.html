@@ -7,6 +7,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="stlye.css">
+    <style>
+        /* สไตล์กรอบรูปโปรไฟล์ */
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-frame {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--gold-luxury, #C5A059), #FFF, var(--gold-luxury, #C5A059));
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-frame:hover {
+            transform: scale(1.03);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #FFF;
+        }
+    </style>
 </head>
 <body>
     <canvas id="particleCanvas"></canvas>
@@ -20,7 +50,14 @@
             <a href="portfolio.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> ย้อนกลับหน้าสารบัญ</a>
             
             <div class="content-card-box">
-                <h2 style="color: var(--primary); margin-bottom: 20px; font-size: 1.6rem;">ประวัติส่วนตัว (Personal Info)</h2>
+                <!-- ส่วนรูปโปรไฟล์ Parn.jpg -->
+                <div class="profile-container">
+                    <div class="profile-frame">
+                        <img src="Parn.jpg" alt="นางสาวศิรณตา พลเทกอง" class="profile-img">
+                    </div>
+                </div>
+
+                <h2 style="color: var(--primary); margin-bottom: 20px; font-size: 1.6rem; text-align: center;">ประวัติส่วนตัว (Personal Info)</h2>
                 <div class="info-grid">
                     <div class="info-item">
                         <div class="info-label">ชื่อ-นามสกุล (ภาษาไทย)</div>
