@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สารบัญผลงาน - PORTFOLIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stlye.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <header>
+        <a href="index.html" class="brand-logo">PORTFOLIO</a>
+        <a href="index.html" class="action-btn">หน้าแรก</a>
+    </header>
+
+    <div class="main-wrapper">
+        <div class="page-container">
+            <!-- Profile Card -->
+            <div class="profile-card-header">
+                <div class="profile-img-wrap">
+                    <img src="1788760432866.jpg" alt="อริสรา แซ่ตั๊ง">
+                </div>
+                <div>
+                    <h3 style="font-size: 1.3rem; color: var(--primary);">นางสาวอริสรา แซ่ตั๊ง</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">นักเรียนระดับชั้นมัธยมศึกษาปีที่ 6 • โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"</p>
+                </div>
+            </div>
+
+            <div class="section-title-wrap">
+                <span class="section-tag">PORTFOLIO DIRECTORY</span>
+                <h2 class="section-main-title">สารบัญผลงานและข้อมูลประจำตัว</h2>
+            </div>
+
+            <!-- Grid Menu Cards -->
+            <div class="directory-grid">
+                <a href="profile.html" class="menu-card">
+                    <div class="card-left">
+                        <div class="card-icon-box"><i class="fa-regular fa-id-card"></i></div>
+                        <div>
+                            <span class="card-num">01. PERSONAL INFO</span>
+                            <h3 class="card-title">ประวัติส่วนตัว</h3>
+                            <p class="card-desc">ข้อมูลส่วนตัว ช่องทางการติดต่อ ความสนใจพิเศษ</p>
+                        </div>
+                    </div>
+                    <div class="card-action-link">เปิดดู <i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a href="education.html" class="menu-card">
+                    <div class="card-left">
+                        <div class="card-icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <span class="card-num">02. ACADEMIC & GPAX</span>
+                            <h3 class="card-title">ประวัติการศึกษา</h3>
+                            <p class="card-desc">ผลการเรียนเฉลี่ยสะสม (GPAX) ประวัติการเรียน</p>
+                        </div>
+                    </div>
+                    <div class="card-action-link">เปิดดู <i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a href="target.html" class="menu-card">
+                    <div class="card-left">
+                        <div class="card-icon-box"><i class="fa-solid fa-bullseye"></i></div>
+                        <div>
+                            <span class="card-num">03. TARGET & GOALS</span>
+                            <h3 class="card-title">เป้าหมายการศึกษาต่อ</h3>
+                            <p class="card-desc">คณะและสาขาวิชาเป้าหมาย พร้อมเหตุผลแรงบันดาลใจ</p>
+                        </div>
+                    </div>
+                    <div class="card-action-link">เปิดดู <i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a href="activities.html" class="menu-card">
+                    <div class="card-left">
+                        <div class="card-icon-box"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <span class="card-num">04. ACTIVITIES</span>
+                            <h3 class="card-title">กิจกรรมและผลงาน</h3>
+                            <p class="card-desc">เกียรติบัตรและภาพกิจกรรมการเข้าร่วมต่างๆ</p>
+                        </div>
+                    </div>
+                    <div class="card-action-link">เปิดดู <i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <a href="skills.html" class="menu-card">
+                    <div class="card-left">
+                        <div class="card-icon-box"><i class="fa-solid fa-gears"></i></div>
+                        <div>
+                            <span class="card-num">05. SKILLS & ABILITIES</span>
+                            <h3 class="card-title">ทักษะและความสามารถ</h3>
+                            <p class="card-desc">ทักษะทางวิชาการ ภาษา และความสามารถพิเศษ</p>
+                        </div>
+                    </div>
+                    <div class="card-action-link">เปิดดู <i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvas); resizeCanvas();
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.radius = Math.random() * 2.5 + 1;
+                this.speedY = Math.random() * 0.4 + 0.15;
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+            update() { this.y -= this.speedY; if (this.y < -10) this.reset(); }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.shadowBlur = 8; ctx.shadowColor = 'rgba(197, 160, 89, 0.4)'; ctx.fill();
+            }
+        }
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
+        animate();
+    </script>
+</body>
+</html>
