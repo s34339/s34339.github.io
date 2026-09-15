@@ -1,13 +1,15 @@
 :root {
-    --bg-base: #fff5f9;
+    --bg-base: #fef9f0;
     --primary: #e8639b;
     --primary-light: #f6a6c9;
-    --accent-gold: #8fd9b6;
-    --accent-mint: #b6f0d1;
+    --accent-gold: #ffcd4a;
+    --accent-mint: #9fd88b;
+    --lavender: #c9a8e0;
+    --leaf-green: #6fa85c;
     --text-main: #4a3b45;
-    --text-muted: #a68a9a;
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --border-color: rgba(232, 99, 155, 0.12);
+    --text-muted: #8a7a80;
+    --card-bg: rgba(255, 253, 246, 0.88);
+    --border-color: rgba(111, 168, 92, 0.25);
     --shadow-soft: 0 15px 35px rgba(232, 99, 155, 0.10);
 }
 
@@ -21,17 +23,17 @@
 
 body {
     background:
-        radial-gradient(circle at 15% 20%, rgba(182, 240, 209, 0.35) 0%, transparent 45%),
-        radial-gradient(circle at 85% 15%, rgba(246, 166, 201, 0.35) 0%, transparent 45%),
-        radial-gradient(circle at 50% 90%, rgba(182, 240, 209, 0.25) 0%, transparent 50%),
-        var(--bg-base);
+        radial-gradient(circle at 12% 18%, rgba(201, 168, 224, 0.30) 0%, transparent 40%),
+        radial-gradient(circle at 88% 12%, rgba(246, 166, 201, 0.30) 0%, transparent 42%),
+        radial-gradient(circle at 50% 55%, rgba(255, 205, 74, 0.15) 0%, transparent 55%),
+        linear-gradient(to bottom, #eaf6ff 0%, #fef6e4 45%, #f2fbe4 100%);
     color: var(--text-main);
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
 }
 
-/* Sparkly glitter overlay */
+/* Sparkly petal/glitter overlay drifting across the whole page */
 body::before {
     content: "";
     position: fixed;
@@ -44,19 +46,45 @@ body::before {
     background-image:
         radial-gradient(circle, #ffffff 1px, transparent 1.5px),
         radial-gradient(circle, #f6a6c9 1px, transparent 1.5px),
-        radial-gradient(circle, #b6f0d1 1px, transparent 1.5px);
-    background-size: 120px 120px, 160px 160px, 140px 140px;
-    background-position: 0 0, 40px 60px, 90px 20px;
+        radial-gradient(circle, #ffcd4a 1px, transparent 1.5px),
+        radial-gradient(circle, #c9a8e0 1px, transparent 1.5px);
+    background-size: 120px 120px, 160px 160px, 150px 150px, 140px 140px;
+    background-position: 0 0, 40px 60px, 90px 20px, 20px 100px;
     animation: glitterTwinkle 4s linear infinite;
-    opacity: 0.6;
+    opacity: 0.55;
 }
 
 @keyframes glitterTwinkle {
-    0%, 100% { opacity: 0.35; }
-    50% { opacity: 0.7; }
+    0%, 100% { opacity: 0.30; }
+    50% { opacity: 0.65; }
 }
 
-/* Canvas Background */
+/* Grassy flower-bed strip along the bottom of every page, like a garden border */
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 12vh;
+    min-height: 90px;
+    pointer-events: none;
+    z-index: 1;
+    clip-path: ellipse(120% 100% at 50% 100%);
+    background:
+        radial-gradient(circle 7px at 6% 25%,  #fff 0 35%, var(--primary-light) 36% 70%, transparent 71%),
+        radial-gradient(circle 6px at 16% 12%, #fff 0 35%, var(--accent-gold) 36% 70%, transparent 71%),
+        radial-gradient(circle 7px at 28% 28%, #fff 0 35%, var(--lavender) 36% 70%, transparent 71%),
+        radial-gradient(circle 6px at 40% 14%, #fff 0 35%, var(--primary-light) 36% 70%, transparent 71%),
+        radial-gradient(circle 7px at 52% 26%, #fff 0 35%, var(--accent-gold) 36% 70%, transparent 71%),
+        radial-gradient(circle 6px at 64% 12%, #fff 0 35%, var(--lavender) 36% 70%, transparent 71%),
+        radial-gradient(circle 7px at 76% 27%, #fff 0 35%, var(--primary-light) 36% 70%, transparent 71%),
+        radial-gradient(circle 6px at 88% 13%, #fff 0 35%, var(--accent-gold) 36% 70%, transparent 71%),
+        radial-gradient(circle 7px at 96% 25%, #fff 0 35%, var(--lavender) 36% 70%, transparent 71%),
+        linear-gradient(to bottom, transparent 0%, #cdeba0 20%, var(--accent-mint) 55%, var(--leaf-green) 100%);
+}
+
+/* Canvas Background (falling petals) */
 #particleCanvas {
     position: fixed;
     top: 0;
@@ -78,9 +106,9 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: rgba(255, 245, 249, 0.85);
+    background: rgba(254, 249, 240, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px dashed var(--border-color);
 }
 
 .brand-logo {
@@ -90,6 +118,10 @@ header {
     color: var(--primary);
     font-size: 1.1rem;
     text-decoration: none;
+}
+
+.brand-logo::before {
+    content: "🌸 ";
 }
 
 .action-btn {
@@ -108,8 +140,8 @@ header {
 }
 
 .action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(232, 99, 155, 0.35), 0 0 15px rgba(182, 240, 209, 0.4);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(232, 99, 155, 0.35), 0 0 15px rgba(159, 216, 139, 0.4);
 }
 
 /* Container */
@@ -140,14 +172,14 @@ header {
     font-family: 'Cinzel', serif;
     font-size: 1.25rem;
     letter-spacing: 6px;
-    color: var(--accent-gold);
+    color: var(--leaf-green);
     margin-bottom: 28px;
     font-weight: 500;
 }
 
 .school-badge {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(232, 99, 155, 0.18);
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px dashed rgba(232, 99, 155, 0.35);
     padding: 10px 24px;
     border-radius: 50px;
     color: var(--primary);
@@ -155,7 +187,17 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 4px 15px rgba(182, 240, 209, 0.3);
+    box-shadow: 0 4px 15px rgba(159, 216, 139, 0.3);
+    position: relative;
+}
+
+.school-badge::before {
+    content: "🌷";
+    position: absolute;
+    top: -14px;
+    left: -10px;
+    font-size: 1.1rem;
+    transform: rotate(-15deg);
 }
 
 .scroll-down-hint {
@@ -186,15 +228,15 @@ header {
 
 /* PORTFOLIO & SUBPAGES CONTENT */
 .page-container {
-    padding: 120px 20px 80px;
+    padding: 120px 20px 100px;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .profile-card-header {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
+    border: 2px dashed var(--border-color);
+    border-radius: 28px 12px 28px 12px;
     padding: 30px;
     display: flex;
     align-items: center;
@@ -202,6 +244,23 @@ header {
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(15px);
     margin-bottom: 40px;
+    position: relative;
+}
+
+.profile-card-header::before {
+    content: "🌼";
+    position: absolute;
+    top: -16px;
+    left: 22px;
+    font-size: 1.4rem;
+}
+
+.profile-card-header::after {
+    content: "🦋";
+    position: absolute;
+    bottom: -14px;
+    right: 26px;
+    font-size: 1.3rem;
 }
 
 .profile-img-wrap {
@@ -228,7 +287,7 @@ header {
 
 .section-tag {
     font-family: 'Cinzel', serif;
-    color: var(--accent-gold);
+    color: var(--leaf-green);
     font-size: 0.8rem;
     letter-spacing: 3px;
     display: block;
@@ -249,8 +308,8 @@ header {
 
 .menu-card {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border: 2px dashed var(--border-color);
+    border-radius: 24px 10px 24px 10px;
     padding: 24px 30px;
     display: flex;
     align-items: center;
@@ -260,12 +319,21 @@ header {
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(15px);
     transition: all 0.3s ease;
+    position: relative;
+}
+
+.menu-card::before {
+    content: "🌿";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    font-size: 1.1rem;
 }
 
 .menu-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(232, 99, 155, 0.35);
-    box-shadow: 0 15px 30px rgba(232, 99, 155, 0.12), 0 0 20px rgba(182, 240, 209, 0.25);
+    transform: translateY(-3px) rotate(-0.4deg);
+    border-color: rgba(232, 99, 155, 0.5);
+    box-shadow: 0 15px 30px rgba(232, 99, 155, 0.12), 0 0 20px rgba(159, 216, 139, 0.3);
 }
 
 .card-left {
@@ -277,8 +345,8 @@ header {
 .card-icon-box {
     width: 50px;
     height: 50px;
-    border-radius: 14px;
-    background: rgba(182, 240, 209, 0.25);
+    border-radius: 16px 6px 16px 6px;
+    background: rgba(159, 216, 139, 0.22);
     color: var(--primary);
     display: flex;
     align-items: center;
@@ -289,7 +357,7 @@ header {
 .card-num {
     font-family: 'Cinzel', serif;
     font-size: 0.75rem;
-    color: var(--accent-gold);
+    color: var(--leaf-green);
     letter-spacing: 1px;
 }
 
@@ -314,8 +382,8 @@ header {
 
 /* Sub-page Specific */
 .btn-back {
-    background: transparent;
-    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px dashed var(--border-color);
     padding: 8px 20px;
     border-radius: 30px;
     color: var(--text-muted);
@@ -336,11 +404,29 @@ header {
 
 .content-card-box {
     background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
+    border: 2px dashed var(--border-color);
+    border-radius: 30px 12px 30px 12px;
     padding: 35px;
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(15px);
+    position: relative;
+}
+
+.content-card-box::before {
+    content: "🌻";
+    position: absolute;
+    top: -18px;
+    left: 28px;
+    font-size: 1.5rem;
+}
+
+.content-card-box::after {
+    content: "🍃";
+    position: absolute;
+    bottom: -14px;
+    right: 30px;
+    font-size: 1.3rem;
+    transform: rotate(15deg);
 }
 
 .info-grid {
@@ -351,9 +437,9 @@ header {
 
 .info-item {
     padding: 16px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 14px;
-    border: 1px solid rgba(232, 99, 155, 0.06);
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 16px 6px 16px 6px;
+    border: 1px dashed rgba(111, 168, 92, 0.25);
 }
 
 .info-label {
