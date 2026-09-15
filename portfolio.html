@@ -172,9 +172,8 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
   box-shadow:0 8px 24px rgba(160,220,120,.35);line-height:1.9;font-size:16px;color:#3f5a35;}
 .study-card .faculty{font-size:22px;font-weight:bold;color:#5a9a45;margin-bottom:10px;}
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:10px;}
-.cert-stack{display:flex;flex-direction:column;gap:18px;}
-.cert-stack .cert-box{min-height:auto;}
-.cert-stack .cert-box.has-img img{max-height:130px;}
+.cert-pair{display:flex;gap:16px;grid-column:span 2;}
+.cert-pair .cert-box{flex:1;min-height:auto;}
 .cert-box{padding:22px;border-radius:28px;border:3px dashed #c9eda0;background:rgba(230,243,255,.5);min-height:220px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#7fa86a;text-align:center;}
 .cert-box{transition:transform .3s, box-shadow .3s, border-color .3s, background .3s, opacity .5s ease, translate .5s ease;} .cert-box:hover{transform:translateY(-6px) scale(1.03);border-color:#ffb6d9;background:rgba(255,240,248,.6);}
@@ -615,21 +614,26 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
         <div class="cert-caption"></div>
       </div>
 
-      <div class="cert-stack">
-        <div class="cert-box text-list">
-          <span class="cert-icon">🏅</span>
-          <div class="cert-title">โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10
+      <div class="cert-box text-list">
+        <span class="cert-icon">🏅</span>
+        <div class="cert-title">โครงการแลกเปลี่ยนทางวิชาการครั้งที่ 10
 <br>ระหว่างโรงเรียนมัธยมศึกษาอิจิคาว่า ประเทศญี่ปุ่น
 และโรงเรียนวิทยาศาสตร์จุฬาภรณราชวิทยาลัย</div>
-          <ul class="cert-list">
-            <li>ตระหนักถึงความสำคัญของการสื่อสาร การรับฟัง และการทำงานร่วมกับผู้อื่น</li>
-            <li>เพิ่มเนื้อหาสำคัญของวิชาชีวเคมีทางการแพทย์</li>
-            <li>การดูแลผู้ที่เกี่ยวข้องต่ออาศัยความเข้าใจในความแตกต่างของแต่ละบุคคล ไม่แค่แค่ในความรู้ทางวิทยาศาสตร์</li>
-            <li>ฝึกทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</li>
-          </ul>
-        </div>
+        <ul class="cert-list">
+          <li>ตระหนักถึงความสำคัญของการสื่อสาร การรับฟัง และการทำงานร่วมกับผู้อื่น</li>
+          <li>เพิ่มเนื้อหาสำคัญของวิชาชีวเคมีทางการแพทย์</li>
+          <li>การดูแลผู้ที่เกี่ยวข้องต่ออาศัยความเข้าใจในความแตกต่างของแต่ละบุคคล ไม่แค่แค่ในความรู้ทางวิทยาศาสตร์</li>
+          <li>ฝึกทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</li>
+        </ul>
+      </div>
+
+      <div class="cert-pair">
         <div class="cert-box has-img">
           <img src="IMG_ใหม่1.jpeg" alt="รูปกิจกรรม">
+          <div class="cert-caption"></div>
+        </div>
+        <div class="cert-box has-img">
+          <img src="IMG_ใหม่2.jpeg" alt="รูปกิจกรรม">
           <div class="cert-caption"></div>
         </div>
       </div>
@@ -647,11 +651,6 @@ h2.page-title{margin:0 0 30px;font-size:clamp(30px,6vw,46px);color:#ff8fc2;lette
 
       <div class="cert-box has-img">
         <img src="IMG_3820.jpeg" alt="เกียรติบัตร">
-        <div class="cert-caption"></div>
-      </div>
-
-      <div class="cert-box has-img">
-        <img src="IMG_ใหม่2.jpeg" alt="รูปกิจกรรม">
         <div class="cert-caption"></div>
       </div>
 
